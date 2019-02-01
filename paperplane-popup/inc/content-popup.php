@@ -20,6 +20,9 @@ else {
   $close_button_position = 'top-right-text';
 }
 $usare_testi = get_field( 'usare_testi' );
+$bordo_cornice = get_field( 'bordo_cornice' );
+$ingombro_totale = ( get_field( 'distanza_bordo' )*2 + get_field( 'spessore_bordo' )*2 );
+
 $testo_o_html = get_field( 'testo_o_html' );
 $min_height = 0;
 $posizionamento_immagine_testo = get_field( 'posizionamento_immagine_testo' );
@@ -89,7 +92,11 @@ $(document).click(function(e) {
 <?php if ( $show_overlay === 'si' ) : ?>
   <div id="cookie_box<?php echo $post_slug; ?>" class="popup-overlay popup-verticalize" style="background-color: <?php the_field('colore_overlay'); ?>;">
     <div class="popup-wrapper" style="max-width: <?php echo $larghezza_max_pop_up; ?>px;">
+
       <div class="popup-shape <?php echo $shape_class; ?>" style="min-height: <?php echo $min_height; ?>px">
+        <?php if ( $bordo_cornice === 'si' ) : ?>
+          <div class="popup-borders" style="left: <?php the_field('distanza_bordo'); ?>px; top: <?php the_field('distanza_bordo'); ?>px; border: <?php the_field('stile_bordo'); ?> <?php the_field('spessore_bordo'); ?>px <?php the_field('colore_bordo'); ?>; width: calc(100% - <?php echo $ingombro_totale; ?>px);  height: calc(100% - <?php echo $ingombro_totale; ?>px);"></div>
+        <?php endif; ?>
         <div class="popup-shape-image <?php echo $ver_desktop; ?> <?php echo $ver_mobile; ?>" style="background-color: <?php the_field('colore_sfondo_immagine'); ?>;">
           <a href="<?php the_field( 'scegli_url' ); ?>" target="<?php the_field( 'scegli_url_target' ); ?>" class="cookie_box_close_forever<?php echo $post_slug; ?>">
             <?php require_once( plugin_dir_path( __FILE__ ) . '/image-display-popup.php'); ?>
@@ -150,6 +157,9 @@ $(document).click(function(e) {
   <div id="cookie_box<?php echo $post_slug; ?>" class="popup-not-overlay popup-<?php echo $pop_up_position; ?>">
     <div class="popup-non-wrapper" style="max-width: <?php echo $larghezza_max_pop_up; ?>px;">
       <div class="popup-shape <?php echo $shape_class; ?>" style="min-height: <?php echo $min_height; ?>px">
+        <?php if ( $bordo_cornice === 'si' ) : ?>
+          <div class="popup-borders" style="left: <?php the_field('distanza_bordo'); ?>px; top: <?php the_field('distanza_bordo'); ?>px; border: <?php the_field('stile_bordo'); ?> <?php the_field('spessore_bordo'); ?>px <?php the_field('colore_bordo'); ?>; width: calc(100% - <?php echo $ingombro_totale; ?>px);  height: calc(100% - <?php echo $ingombro_totale; ?>px);"></div>
+        <?php endif; ?>
         <div class="popup-shape-image <?php echo $ver_desktop; ?> <?php echo $ver_mobile; ?>" style="background-color: <?php the_field('colore_sfondo_immagine'); ?>;">
           <a href="<?php the_field( 'scegli_url' ); ?>" target="<?php the_field( 'scegli_url_target' ); ?>" class="cookie_box_close_forever<?php echo $post_slug; ?>">
             <?php require_once( plugin_dir_path( __FILE__ ) . '/image-display-popup.php'); ?>

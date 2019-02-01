@@ -69,6 +69,17 @@
 	position: relative;
 }
 
+.popup-contents {
+	position: relative;
+}
+
+.popup-borders {
+	position: absolute;
+	z-index: 99;
+	display: block;
+	pointer-events: none;
+}
+
 .popup-padder {
 	padding: 25px;
 }
