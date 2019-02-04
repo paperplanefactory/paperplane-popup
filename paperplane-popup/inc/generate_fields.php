@@ -151,7 +151,7 @@ acf_add_local_field_group(array(
 		),
 		array(
 			'key' => 'field_5afc3b3745535',
-			'label' => 'Scegli in quali pagine mostrare il pop up',
+			'label' => 'Scegli una o più pagine nelle quali mostrare il pop up',
 			'name' => 'scegli_pagina',
 			'type' => 'post_object',
 			'instructions' => 'Se questo campo non viene compilato il pop up comparirà in tutte le pagine.',
@@ -176,10 +176,9 @@ acf_add_local_field_group(array(
 				2 => 'post',
 				3 => 'lp',
 			),
-			'taxonomy' => array(
-			),
+			'taxonomy' => '',
 			'allow_null' => 0,
-			'multiple' => 0,
+			'multiple' => 1,
 			'return_format' => 'id',
 			'ui' => 1,
 		),
@@ -457,7 +456,7 @@ acf_add_local_field_group(array(
 		),
 		array(
 			'key' => 'field_5c546a64b47e4',
-			'label' => 'Gestione testi',
+			'label' => 'Gestione testi e contenuti',
 			'name' => '',
 			'type' => 'accordion',
 			'instructions' => '',
@@ -620,7 +619,7 @@ acf_add_local_field_group(array(
 			'label' => 'Codice HTML',
 			'name' => 'html',
 			'type' => 'textarea',
-			'instructions' => '',
+			'instructions' => 'Scegliendo questa opzione consigliamo di rimuovere le immagini nella sezione "Gesione immagini" per una corretta visualizzazione su tutti gli schermi.',
 			'required' => 1,
 			'conditional_logic' => array(
 				array(
@@ -652,7 +651,7 @@ acf_add_local_field_group(array(
 			'label' => 'Embed',
 			'name' => 'embed',
 			'type' => 'oembed',
-			'instructions' => '',
+			'instructions' => 'Scegliendo questa opzione consigliamo di rimuovere le immagini nella sezione "Gesione immagini" per una corretta visualizzazione su tutti gli schermi.',
 			'required' => 1,
 			'conditional_logic' => array(
 				array(

@@ -12,7 +12,7 @@
     $today = date('Y-m-d H:i:s');
     $args_popup = array(
       'post_type' => 'popup',
-      'posts_per_page' => -1,
+      'posts_per_page' => 1,
       'meta_key' => 'data_ora_di_scadenza_pop_up',
       'meta_query' => array(
         array(
@@ -36,7 +36,7 @@
      <?php
      if ( $test_mode == 1 ) {
        if ( is_user_logged_in() ) {
-         if ( $where_to_show === 'onepage' && $show_in_page == $current_position )  {
+         if ( $where_to_show === 'onepage' && in_array( $current_position, $show_in_page ) )  {
            require_once( plugin_dir_path( __FILE__ ) . '/content-popup.php');
          }
          elseif ( $where_to_show === 'homepage' && $where_am_i === 'home' ) {
@@ -51,7 +51,7 @@
        }
      }
      else {
-       if ( $where_to_show === 'onepage' && $show_in_page == $current_position )  {
+       if ( $where_to_show === 'onepage' && in_array( $current_position, $show_in_page ) )  {
          require_once( plugin_dir_path( __FILE__ ) . '/content-popup.php');
        }
        elseif ( $where_to_show === 'homepage' && $where_am_i === 'home' ) {

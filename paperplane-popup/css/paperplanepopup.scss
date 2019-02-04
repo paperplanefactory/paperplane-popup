@@ -14,16 +14,16 @@
 	opacity: 0;
 }
 
-.popup-verticalize {
-  -webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-
 .popup-not-overlay {
 	position: fixed;
 	z-index: 9999;
 	opacity: 0;
+}
+
+.popup-verticalize {
+  -webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
 }
 
 .popup-top-right {
@@ -81,6 +81,8 @@
 }
 
 .popup-padder {
+	position: relative;
+	width: calc(100% - 50px);
 	padding: 25px;
 }
 
@@ -163,8 +165,11 @@
 }
 
 .popup-styler {
+	position: relative;
+	width: 100% !important;
 	iframe {
 		width: 100% !important;
+		margin-bottom: 15px;
 	}
 }
 

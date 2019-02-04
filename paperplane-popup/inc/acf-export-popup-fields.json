@@ -5,9 +5,9 @@
         "fields": [
             {
                 "key": "field_5afc3ab045532",
-                "label": "Gestione comportamento del pop up",
+                "label": "Gestione comportamento",
                 "name": "",
-                "type": "message",
+                "type": "accordion",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
@@ -16,9 +16,9 @@
                     "class": "",
                     "id": ""
                 },
-                "message": "",
-                "new_lines": "wpautop",
-                "esc_html": 0
+                "open": 1,
+                "multi_expand": 0,
+                "endpoint": 0
             },
             {
                 "key": "field_5b0830b9304fc",
@@ -147,7 +147,7 @@
             },
             {
                 "key": "field_5afc3b3745535",
-                "label": "Scegli in quali pagine mostrare il pop up",
+                "label": "Scegli una o più pagine nelle quali mostrare il pop up",
                 "name": "scegli_pagina",
                 "type": "post_object",
                 "instructions": "Se questo campo non viene compilato il pop up comparirà in tutte le pagine.",
@@ -172,9 +172,9 @@
                     "post",
                     "lp"
                 ],
-                "taxonomy": [],
+                "taxonomy": "",
                 "allow_null": 0,
-                "multiple": 0,
+                "multiple": 1,
                 "return_format": "id",
                 "ui": 1
             },
@@ -224,9 +224,9 @@
             },
             {
                 "key": "field_5bf950b00e536",
-                "label": "Gestione aspetto del pop up",
+                "label": "Gestione immagini",
                 "name": "",
-                "type": "message",
+                "type": "accordion",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
@@ -235,9 +235,9 @@
                     "class": "",
                     "id": ""
                 },
-                "message": "",
-                "new_lines": "wpautop",
-                "esc_html": 0
+                "open": 0,
+                "multi_expand": 0,
+                "endpoint": 0
             },
             {
                 "key": "field_5afc388f3d607",
@@ -448,6 +448,23 @@
                 "default_value": ""
             },
             {
+                "key": "field_5c546a64b47e4",
+                "label": "Gestione testi e contenuti",
+                "name": "",
+                "type": "accordion",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "open": 0,
+                "multi_expand": 0,
+                "endpoint": 0
+            },
+            {
                 "key": "field_5afc3a4745531",
                 "label": "Usare i testi?",
                 "name": "usare_testi",
@@ -593,7 +610,7 @@
                 "label": "Codice HTML",
                 "name": "html",
                 "type": "textarea",
-                "instructions": "",
+                "instructions": "Scegliendo questa opzione consigliamo di rimuovere le immagini nella sezione \"Gesione immagini\" per una corretta visualizzazione su tutti gli schermi.",
                 "required": 1,
                 "conditional_logic": [
                     [
@@ -625,7 +642,7 @@
                 "label": "Embed",
                 "name": "embed",
                 "type": "oembed",
-                "instructions": "",
+                "instructions": "Scegliendo questa opzione consigliamo di rimuovere le immagini nella sezione \"Gesione immagini\" per una corretta visualizzazione su tutti gli schermi.",
                 "required": 1,
                 "conditional_logic": [
                     [
@@ -922,6 +939,183 @@
                 "placeholder": ""
             },
             {
+                "key": "field_5c5472553a4d7",
+                "label": "Gestione bordi",
+                "name": "",
+                "type": "accordion",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "open": 0,
+                "multi_expand": 0,
+                "endpoint": 0
+            },
+            {
+                "key": "field_5c54693f67cfa",
+                "label": "Usare un bordo \/ cornice all'interno del blocco di testo?",
+                "name": "bordo_cornice",
+                "type": "select",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "no": "No",
+                    "si": "Sì"
+                },
+                "default_value": [],
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "return_format": "value",
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_5c5474285bb88",
+                "label": "Distanza del bordo (in pixel)",
+                "name": "distanza_bordo",
+                "type": "number",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5c54693f67cfa",
+                            "operator": "==",
+                            "value": "si"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": 0,
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": 0,
+                "max": 10,
+                "step": 2
+            },
+            {
+                "key": "field_5c54697e67cfb",
+                "label": "Spessore del bordo (in pixel)",
+                "name": "spessore_bordo",
+                "type": "number",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5c54693f67cfa",
+                            "operator": "==",
+                            "value": "si"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": 1,
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": 1,
+                "max": 5,
+                "step": ""
+            },
+            {
+                "key": "field_5c54728c3a4d8",
+                "label": "Stile del bordo",
+                "name": "stile_bordo",
+                "type": "select",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5c54693f67cfa",
+                            "operator": "==",
+                            "value": "si"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "solid": "Solid",
+                    "dotted": "Puntinato",
+                    "dashed": "Tratteggiato",
+                    "double": "Doppio",
+                    "groove": "Scanalato",
+                    "ridge": "Increspato"
+                },
+                "default_value": [],
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "return_format": "value",
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_5c5469b667cfc",
+                "label": "Colore del bordo",
+                "name": "colore_bordo",
+                "type": "color_picker",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5c54693f67cfa",
+                            "operator": "==",
+                            "value": "si"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": ""
+            },
+            {
+                "key": "field_5c546ba14ce72",
+                "label": "Gestione colore overlay e colore di sfondo",
+                "name": "",
+                "type": "accordion",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "open": 0,
+                "multi_expand": 0,
+                "endpoint": 0
+            },
+            {
                 "key": "field_5b3634c5a0bfd",
                 "label": "Mostrare overlay?",
                 "name": "show_overlay",
@@ -945,41 +1139,6 @@
                 "choices": {
                     "si": "Sì",
                     "no": "No"
-                },
-                "default_value": [],
-                "allow_null": 0,
-                "multiple": 0,
-                "ui": 0,
-                "ajax": 0,
-                "return_format": "value",
-                "placeholder": ""
-            },
-            {
-                "key": "field_5b363091a0bfc",
-                "label": "Posizione pop up",
-                "name": "pop_up_position",
-                "type": "select",
-                "instructions": "Scegli dove posizionare il pop up",
-                "required": 0,
-                "conditional_logic": [
-                    [
-                        {
-                            "field": "field_5b3634c5a0bfd",
-                            "operator": "==",
-                            "value": "no"
-                        }
-                    ]
-                ],
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "choices": {
-                    "top-right": "In alto a destra",
-                    "top-left": "In alto a sinistra",
-                    "bottom-right": "In basso a destra",
-                    "bottom-left": "In basso a sinistra"
                 },
                 "default_value": [],
                 "allow_null": 0,
@@ -1030,6 +1189,23 @@
                 "default_value": ""
             },
             {
+                "key": "field_5c546b894ce71",
+                "label": "Gestione dimensione e posizione",
+                "name": "",
+                "type": "accordion",
+                "instructions": "È possibile posizionare il pop up se nella tab \"Gestione colore overlay e colore di sfondo\" si è scelto \"No\" come valore per il campo \"Mostrare overlay?\".",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "open": 0,
+                "multi_expand": 0,
+                "endpoint": 0
+            },
+            {
                 "key": "field_5b083472c2f81",
                 "label": "Larghezza massima pop up",
                 "name": "larghezza_max_pop_up",
@@ -1049,6 +1225,41 @@
                 "min": 400,
                 "max": 980,
                 "step": ""
+            },
+            {
+                "key": "field_5b363091a0bfc",
+                "label": "Posizione pop up",
+                "name": "pop_up_position",
+                "type": "select",
+                "instructions": "Scegli dove posizionare il pop up.",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5b3634c5a0bfd",
+                            "operator": "==",
+                            "value": "no"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "top-right": "In alto a destra",
+                    "top-left": "In alto a sinistra",
+                    "bottom-right": "In basso a destra",
+                    "bottom-left": "In basso a sinistra"
+                },
+                "default_value": [],
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "return_format": "value",
+                "ajax": 0,
+                "placeholder": ""
             }
         ],
         "location": [
