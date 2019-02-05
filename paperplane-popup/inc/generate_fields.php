@@ -10,7 +10,7 @@ acf_add_local_field_group(array(
 			'label' => 'Gestione comportamento',
 			'name' => '',
 			'type' => 'accordion',
-			'instructions' => '',
+			'instructions' => 'Imposta URL di destinazione, scadenza pop up, dove mostrare il pop up e altre opzioni.',
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(
@@ -135,7 +135,7 @@ acf_add_local_field_group(array(
 				'id' => '',
 			),
 			'choices' => array(
-				'onepage' => 'Una pagina specifica',
+				'onepage' => 'Una o più pagine',
 				'everywhere' => 'In tutte le pagine',
 				'homepage' => 'Solo in homepage',
 				'onectp' => 'In tutti gli elementi di un tipo di contenuto specifico',
@@ -145,8 +145,8 @@ acf_add_local_field_group(array(
 			'allow_null' => 0,
 			'multiple' => 0,
 			'ui' => 0,
-			'ajax' => 0,
 			'return_format' => 'value',
+			'ajax' => 0,
 			'placeholder' => '',
 		),
 		array(
@@ -231,7 +231,7 @@ acf_add_local_field_group(array(
 			'label' => 'Gestione immagini',
 			'name' => '',
 			'type' => 'accordion',
-			'instructions' => '',
+			'instructions' => 'Scegli l\'immagine da utilizzare per desktop e mobile e il layout del pop up.',
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(
@@ -459,7 +459,7 @@ acf_add_local_field_group(array(
 			'label' => 'Gestione testi e contenuti',
 			'name' => '',
 			'type' => 'accordion',
-			'instructions' => '',
+			'instructions' => 'Gestisci testi, CTA, embed e comportamento del pulsante chiudi.',
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(
@@ -958,7 +958,7 @@ Cliccando invece al di fuori del pop up, questo comparirà nuovamente durante la
 			'label' => 'Gestione bordi',
 			'name' => '',
 			'type' => 'accordion',
-			'instructions' => '',
+			'instructions' => 'Scegli se utilizzare i bordi e le relative impostazioni.',
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(

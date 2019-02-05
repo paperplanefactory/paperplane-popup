@@ -12,7 +12,7 @@
     $today = date('Y-m-d H:i:s');
     $args_popup = array(
       'post_type' => 'popup',
-      'posts_per_page' => 1,
+      'posts_per_page' => -1,
       'meta_key' => 'data_ora_di_scadenza_pop_up',
       'meta_query' => array(
         array(
