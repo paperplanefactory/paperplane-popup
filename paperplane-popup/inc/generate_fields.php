@@ -7,7 +7,7 @@ acf_add_local_field_group(array(
 	'fields' => array(
 		array(
 			'key' => 'field_5afc3ab045532',
-			'label' => 'Gestione comportamento',
+			'label' => 'Gestione comportamento!!',
 			'name' => '',
 			'type' => 'accordion',
 			'instructions' => 'Imposta URL di destinazione, scadenza pop up, dove mostrare il pop up e altre opzioni.',
@@ -955,7 +955,7 @@ Cliccando invece al di fuori del pop up, questo comparirà nuovamente durante la
 		),
 		array(
 			'key' => 'field_5c5472553a4d7',
-			'label' => 'Gestione bordi',
+			'label' => 'Gestione bordi e ombra',
 			'name' => '',
 			'type' => 'accordion',
 			'instructions' => 'Scegli se utilizzare i bordi e le relative impostazioni.',
@@ -972,7 +972,7 @@ Cliccando invece al di fuori del pop up, questo comparirà nuovamente durante la
 		),
 		array(
 			'key' => 'field_5c54693f67cfa',
-			'label' => 'Usare un bordo / cornice all\'interno del blocco di testo?',
+			'label' => 'Usare un bordo / cornice?',
 			'name' => 'bordo_cornice',
 			'type' => 'select',
 			'instructions' => '',
@@ -1116,8 +1116,77 @@ Cliccando invece al di fuori del pop up, questo comparirà nuovamente durante la
 			'default_value' => '',
 		),
 		array(
+			'key' => 'field_5c82a32abe80c',
+			'label' => 'Vuoi i bordi arrotondati?',
+			'name' => 'bordi_arrotondati',
+			'type' => 'select',
+			'instructions' => 'Sia i bordi che il contorno del pop up saranno arrotondati.',
+			'required' => 1,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5c54693f67cfa',
+						'operator' => '==',
+						'value' => 'si',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array(
+				'no' => 'No',
+				'rounded' => 'Bordi arrotondati',
+				'rounded-big' => 'Bordi molto arrotondati',
+			),
+			'default_value' => array(
+			),
+			'allow_null' => 0,
+			'multiple' => 0,
+			'ui' => 0,
+			'return_format' => 'value',
+			'ajax' => 0,
+			'placeholder' => '',
+		),
+		array(
+			'key' => 'field_5c82b05b4e9ed',
+			'label' => 'Vuoi un\'ombra sotto al pop up?',
+			'name' => 'ombra_pop_up',
+			'type' => 'select',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5c54693f67cfa',
+						'operator' => '==',
+						'value' => 'si',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array(
+				'no' => 'No',
+				'si' => 'Sì',
+			),
+			'default_value' => array(
+			),
+			'allow_null' => 0,
+			'multiple' => 0,
+			'ui' => 0,
+			'return_format' => 'value',
+			'ajax' => 0,
+			'placeholder' => '',
+		),
+		array(
 			'key' => 'field_5c546ba14ce72',
-			'label' => 'Gestione colore overlay e colore di sfondo',
+			'label' => 'Gestione overlay e colore di sfondo',
 			'name' => '',
 			'type' => 'accordion',
 			'instructions' => '',
@@ -1137,7 +1206,9 @@ Cliccando invece al di fuori del pop up, questo comparirà nuovamente durante la
 			'label' => 'Mostrare overlay?',
 			'name' => 'show_overlay',
 			'type' => 'select',
-			'instructions' => 'Scegli dove posizionare il pop up',
+			'instructions' => 'Scegli se mostrare livello con un colore di sfondo tra il pop up e la pagina.<br />
+Se scegli di utilizzare l\'overlay il pop up verrà posizionato al centro dello schermo.<br />
+Se non utilizzi l\'overlay potrai scegliere dove posizionare il pop up dalla tab "Gestione dimensione e posizione".',
 			'required' => 0,
 			'conditional_logic' => array(
 				array(
@@ -1162,8 +1233,8 @@ Cliccando invece al di fuori del pop up, questo comparirà nuovamente durante la
 			'allow_null' => 0,
 			'multiple' => 0,
 			'ui' => 0,
-			'ajax' => 0,
 			'return_format' => 'value',
+			'ajax' => 0,
 			'placeholder' => '',
 		),
 		array(
