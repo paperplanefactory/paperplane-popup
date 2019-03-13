@@ -7,7 +7,7 @@ acf_add_local_field_group(array(
 	'fields' => array(
 		array(
 			'key' => 'field_5afc3ab045532',
-			'label' => 'Gestione comportamento!!',
+			'label' => 'Gestione comportamento',
 			'name' => '',
 			'type' => 'accordion',
 			'instructions' => 'Imposta URL di destinazione, scadenza pop up, dove mostrare il pop up e altre opzioni.',
@@ -472,6 +472,21 @@ acf_add_local_field_group(array(
 			'endpoint' => 0,
 		),
 		array(
+			'key' => 'field_5afc39f34552e',
+			'label' => 'Colore di sfondo',
+			'name' => 'colore_sfondo',
+			'type' => 'color_picker',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+		),
+		array(
 			'key' => 'field_5afc3a4745531',
 			'label' => 'Usare i testi?',
 			'name' => 'usare_testi',
@@ -749,211 +764,6 @@ acf_add_local_field_group(array(
 			'default_value' => '',
 		),
 		array(
-			'key' => 'field_5b12901e6d6ff',
-			'label' => 'Mostrare il bottone per chiudere il pop up?',
-			'name' => 'show_close_button',
-			'type' => 'select',
-			'instructions' => 'Non preoccuparti: se scegli di non mostrare il bottone sarà comunque possibile chiudere il pop up cliccando al di fuori di esso.<br />
-Note sul comportamento del pop up:<br />
-cliccando il pulsante chiudi, cliccando l\'immagine o cliccando la CTA il pop up verrà chiuso e non mostrato più per il periodo impostato nel campo "Scadenza cookie".<br />
-Cliccando invece al di fuori del pop up, questo comparirà nuovamente durante la navigazione.',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'choices' => array(
-				'si' => 'Sì',
-				'no' => 'No',
-			),
-			'default_value' => array(
-			),
-			'allow_null' => 0,
-			'multiple' => 0,
-			'ui' => 0,
-			'ajax' => 0,
-			'return_format' => 'value',
-			'placeholder' => '',
-		),
-		array(
-			'key' => 'field_5c4ee4f0bfa4e',
-			'label' => 'Usare un\'icona o un testo?',
-			'name' => 'show_close_button_icon_text',
-			'type' => 'select',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field' => 'field_5b12901e6d6ff',
-						'operator' => '==',
-						'value' => 'si',
-					),
-				),
-			),
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'choices' => array(
-				'icon' => 'Icona',
-				'text' => 'Text',
-			),
-			'default_value' => array(
-			),
-			'allow_null' => 0,
-			'multiple' => 0,
-			'ui' => 0,
-			'return_format' => 'value',
-			'ajax' => 0,
-			'placeholder' => '',
-		),
-		array(
-			'key' => 'field_5c4ee545bfa4f',
-			'label' => 'Testo bottone chiudi',
-			'name' => 'testo_bottone_chiudi',
-			'type' => 'text',
-			'instructions' => '',
-			'required' => 1,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field' => 'field_5b12901e6d6ff',
-						'operator' => '==',
-						'value' => 'si',
-					),
-					array(
-						'field' => 'field_5c4ee4f0bfa4e',
-						'operator' => '==',
-						'value' => 'text',
-					),
-				),
-			),
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'placeholder' => '',
-			'prepend' => '',
-			'append' => '',
-			'maxlength' => '',
-		),
-		array(
-			'key' => 'field_5c4ee9213c25b',
-			'label' => 'Colore testo bottone chiudi',
-			'name' => 'colore_chiudi',
-			'type' => 'color_picker',
-			'instructions' => '',
-			'required' => 1,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field' => 'field_5b12901e6d6ff',
-						'operator' => '==',
-						'value' => 'si',
-					),
-					array(
-						'field' => 'field_5c4ee4f0bfa4e',
-						'operator' => '==',
-						'value' => 'text',
-					),
-				),
-			),
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-		),
-		array(
-			'key' => 'field_5b08437b50eef',
-			'label' => 'Icona per il pulsante chiudi',
-			'name' => 'close_button',
-			'type' => 'image',
-			'instructions' => 'Se non vuoi utilizzare un pulsante personalizzato verrà utilizzato quello predefinito. Se vuoi usarne uno personalizzato utilizza un\'immagine png di 30x30px',
-			'required' => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field' => 'field_5b12901e6d6ff',
-						'operator' => '==',
-						'value' => 'si',
-					),
-					array(
-						'field' => 'field_5c4ee4f0bfa4e',
-						'operator' => '==',
-						'value' => 'icon',
-					),
-				),
-			),
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'return_format' => 'url',
-			'preview_size' => 'thumbnail',
-			'library' => 'all',
-			'min_width' => 30,
-			'min_height' => 30,
-			'min_size' => '',
-			'max_width' => 30,
-			'max_height' => 30,
-			'max_size' => '',
-			'mime_types' => 'png',
-		),
-		array(
-			'key' => 'field_5b1292e360ba3',
-			'label' => 'Posizione pulsante chiudi',
-			'name' => 'close_button_position',
-			'type' => 'select',
-			'instructions' => 'Scegli dove posizionare il pulsante',
-			'required' => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field' => 'field_5b12901e6d6ff',
-						'operator' => '==',
-						'value' => 'si',
-					),
-					array(
-						'field' => 'field_5c4ee4f0bfa4e',
-						'operator' => '==',
-						'value' => 'icon',
-					),
-				),
-			),
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'choices' => array(
-				'top-right' => 'In alto a destra',
-				'top-left' => 'In alto a sinistra',
-				'bottom-right' => 'In basso a destra',
-				'bottom-left' => 'In basso a sinistra',
-				'top-center' => 'In alto al centro',
-				'bottom-center' => 'In basso al centro',
-				'left-center' => 'A sinistra al centro',
-				'right-center' => 'A destra al centro',
-			),
-			'default_value' => array(
-			),
-			'allow_null' => 0,
-			'multiple' => 0,
-			'ui' => 0,
-			'return_format' => 'value',
-			'ajax' => 0,
-			'placeholder' => '',
-		),
-		array(
 			'key' => 'field_5c5472553a4d7',
 			'label' => 'Gestione bordi e ombra',
 			'name' => '',
@@ -1186,7 +996,7 @@ Cliccando invece al di fuori del pop up, questo comparirà nuovamente durante la
 		),
 		array(
 			'key' => 'field_5c546ba14ce72',
-			'label' => 'Gestione overlay e colore di sfondo',
+			'label' => 'Gestione overlay',
 			'name' => '',
 			'type' => 'accordion',
 			'instructions' => '',
@@ -1263,21 +1073,6 @@ Se non utilizzi l\'overlay potrai scegliere dove posizionare il pop up dalla tab
 			'hide_palette' => 0,
 		),
 		array(
-			'key' => 'field_5afc39f34552e',
-			'label' => 'Colore di sfondo',
-			'name' => 'colore_sfondo',
-			'type' => 'color_picker',
-			'instructions' => '',
-			'required' => 1,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-		),
-		array(
 			'key' => 'field_5c546b894ce71',
 			'label' => 'Gestione dimensione e posizione',
 			'name' => '',
@@ -1351,6 +1146,234 @@ Se non utilizzi l\'overlay potrai scegliere dove posizionare il pop up dalla tab
 			'ajax' => 0,
 			'placeholder' => '',
 		),
+		array(
+			'key' => 'field_5c89305c92b1c',
+			'label' => 'Gestione pulsante di chiusura',
+			'name' => '',
+			'type' => 'accordion',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'open' => 0,
+			'multi_expand' => 0,
+			'endpoint' => 0,
+		),
+		array(
+			'key' => 'field_5b12901e6d6ff',
+			'label' => 'Mostrare il bottone per chiudere il pop up?',
+			'name' => 'show_close_button',
+			'type' => 'select',
+			'instructions' => 'Non preoccuparti: se scegli di non mostrare il bottone sarà comunque possibile chiudere il pop up cliccando al di fuori di esso.<br />
+Note sul comportamento del pop up:<br />
+cliccando il pulsante chiudi, cliccando l\'immagine o cliccando la CTA il pop up verrà chiuso e non mostrato più per il periodo impostato nel campo "Scadenza cookie".<br />
+Cliccando invece al di fuori del pop up, questo comparirà nuovamente durante la navigazione.<br />
+Se hai scelto di utilizzare l\'overlay (e quindi di posizionare il pop up al centro dello schermo) potrai anche scegliere dove posizionare il pulsante di chiusura. Se invece il pop up è posizionato in un angolo dello schermo il pulsante di chiusura verrà posizionato automaticamente.',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array(
+				'si' => 'Sì',
+				'no' => 'No',
+			),
+			'default_value' => array(
+			),
+			'allow_null' => 0,
+			'multiple' => 0,
+			'ui' => 0,
+			'return_format' => 'value',
+			'ajax' => 0,
+			'placeholder' => '',
+		),
+		array(
+			'key' => 'field_5c4ee4f0bfa4e',
+			'label' => 'Usare un\'icona o un testo?',
+			'name' => 'show_close_button_icon_text',
+			'type' => 'select',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5b12901e6d6ff',
+						'operator' => '==',
+						'value' => 'si',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array(
+				'icon' => 'Icona',
+				'text' => 'Text',
+			),
+			'default_value' => array(
+			),
+			'allow_null' => 0,
+			'multiple' => 0,
+			'ui' => 0,
+			'return_format' => 'value',
+			'ajax' => 0,
+			'placeholder' => '',
+		),
+		array(
+			'key' => 'field_5c4ee545bfa4f',
+			'label' => 'Testo bottone chiudi',
+			'name' => 'testo_bottone_chiudi',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5b12901e6d6ff',
+						'operator' => '==',
+						'value' => 'si',
+					),
+					array(
+						'field' => 'field_5c4ee4f0bfa4e',
+						'operator' => '==',
+						'value' => 'text',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
+		array(
+			'key' => 'field_5c4ee9213c25b',
+			'label' => 'Colore testo bottone chiudi',
+			'name' => 'colore_chiudi',
+			'type' => 'color_picker',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5b12901e6d6ff',
+						'operator' => '==',
+						'value' => 'si',
+					),
+					array(
+						'field' => 'field_5c4ee4f0bfa4e',
+						'operator' => '==',
+						'value' => 'text',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+		),
+		array(
+			'key' => 'field_5b08437b50eef',
+			'label' => 'Icona per il pulsante chiudi',
+			'name' => 'close_button',
+			'type' => 'image',
+			'instructions' => 'Se non vuoi utilizzare un pulsante personalizzato verrà utilizzato quello predefinito. Se vuoi usarne uno personalizzato utilizza un\'immagine png di 30x30px',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5b12901e6d6ff',
+						'operator' => '==',
+						'value' => 'si',
+					),
+					array(
+						'field' => 'field_5c4ee4f0bfa4e',
+						'operator' => '==',
+						'value' => 'icon',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'return_format' => 'url',
+			'preview_size' => 'thumbnail',
+			'library' => 'all',
+			'min_width' => 30,
+			'min_height' => 30,
+			'min_size' => '',
+			'max_width' => 30,
+			'max_height' => 30,
+			'max_size' => '',
+			'mime_types' => 'png',
+		),
+		array(
+			'key' => 'field_5b1292e360ba3',
+			'label' => 'Posizione pulsante chiudi',
+			'name' => 'close_button_position',
+			'type' => 'select',
+			'instructions' => 'Scegli dove posizionare il pulsante',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5b12901e6d6ff',
+						'operator' => '==',
+						'value' => 'si',
+					),
+					array(
+						'field' => 'field_5c4ee4f0bfa4e',
+						'operator' => '==',
+						'value' => 'icon',
+					),
+					array(
+						'field' => 'field_5b3634c5a0bfd',
+						'operator' => '==',
+						'value' => 'si',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array(
+				'top-right' => 'In alto a destra',
+				'top-left' => 'In alto a sinistra',
+				'bottom-right' => 'In basso a destra',
+				'bottom-left' => 'In basso a sinistra',
+				'top-center' => 'In alto al centro',
+				'bottom-center' => 'In basso al centro',
+				'left-center' => 'A sinistra al centro',
+				'right-center' => 'A destra al centro',
+			),
+			'default_value' => array(
+			),
+			'allow_null' => 0,
+			'multiple' => 0,
+			'ui' => 0,
+			'return_format' => 'value',
+			'ajax' => 0,
+			'placeholder' => '',
+		),
 	),
 	'location' => array(
 		array(
@@ -1367,7 +1390,7 @@ Se non utilizzi l\'overlay potrai scegliere dove posizionare il pop up dalla tab
 	'label_placement' => 'top',
 	'instruction_placement' => 'label',
 	'hide_on_screen' => '',
-	'active' => 1,
+	'active' => true,
 	'description' => '',
 ));
 

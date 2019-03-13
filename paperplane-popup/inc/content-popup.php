@@ -10,7 +10,18 @@ if ( $show_overlay === 'no' ) {
   $popup_verticalize = '';
   $colore_overlay = 'transparent';
   $popup_overlay_class = 'popup-not-overlay';
-  $larghezza_min_pop_up = get_field( 'larghezza_max_pop_up' );
+  $larghezza_min_pop_up = 1;
+  $show_close_button = get_field( 'show_close_button' );
+  $show_close_button_icon_text = get_field( 'show_close_button_icon_text' );
+  if ( $show_close_button_icon_text === 'icon' ) {
+    $close_button_shape = 'icon';
+    $close_button_position = 'def-set';
+  }
+  else {
+    $close_button_shape = 'text';
+    $close_button_position = 'def-set-text';
+  }
+  $usare_testi = get_field( 'usare_testi' );
 }
 else {
   $pop_up_position = 'default';
@@ -18,19 +29,20 @@ else {
   $colore_overlay = get_field( 'colore_overlay' );
   $popup_overlay_class = 'popup-overlay';
   $larghezza_min_pop_up = 1;
+  $show_close_button = get_field( 'show_close_button' );
+  $show_close_button_icon_text = get_field( 'show_close_button_icon_text' );
+  if ( $show_close_button_icon_text === 'icon' ) {
+    $close_button_shape = 'icon';
+    $close_button_position = get_field( 'close_button_position' );
+  }
+  else {
+    $close_button_shape = 'text';
+    $close_button_position = 'top-right-text';
+  }
+  $usare_testi = get_field( 'usare_testi' );
 }
 $larghezza_max_pop_up = get_field( 'larghezza_max_pop_up' );
-$show_close_button = get_field( 'show_close_button' );
-$show_close_button_icon_text = get_field( 'show_close_button_icon_text' );
-if ( $show_close_button_icon_text === 'icon' ) {
-  $close_button_shape = 'icon';
-  $close_button_position = get_field( 'close_button_position' );
-}
-else {
-  $close_button_shape = 'text';
-  $close_button_position = 'top-right-text';
-}
-$usare_testi = get_field( 'usare_testi' );
+
 $bordo_cornice = get_field( 'bordo_cornice' );
 $ingombro_totale = ( get_field( 'distanza_bordo' )*2 + get_field( 'spessore_bordo' )*2 );
 
