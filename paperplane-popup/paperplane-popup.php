@@ -3,7 +3,7 @@
 Plugin Name: Paperplane Popup
 Plugin URI: https://www.paperplanefactory.com
 description: A plugin to create wonderful popups. You need to activate <strong><a href="https://www.advancedcustomfields.com/pro/">ACF PRO</a> and <a href="https://wordpress.org/plugins/acf-rgba-color-picker/">ACF RGBA Color Picker</a></strong> to make Paperplane Popup work.
-Version: 2.8.2
+Version: 2.8.3
 Author: Paperplane
 Author URI: https://www.paperplanefactory.com
 Copyright: Paperplane
@@ -28,11 +28,37 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @internal
  */
+
  function paperplanePopup_init() {
+
+	 // verifico se ci sono pop up pubblicati per includere o meno script e css
+	 $today = date('Y-m-d H:i:s');
+	 $args_popup = array(
+		 'post_type' => 'popup',
+		 'posts_per_page' => -1,
+		 'meta_key' => 'data_ora_di_scadenza_pop_up',
+		 'meta_query' => array(
+			 array(
+				 'key' => 'data_ora_di_scadenza_pop_up',
+				 'value' => $today,
+				 'compare' => '>='
+			 )
+		 ),
+	 );
+	 $popup_check = get_posts( $args_popup );
+	 if ( !empty ( $popup_check ) ) {
+		 $load = 'yes';
+	 }
+	 else {
+		 $load = 'no';
+	 }
 	 // verifico che siano attivi ACF e colorpicker
 	 if( class_exists( 'ACF' ) && class_exists( 'dhz_acf_plugin_extended_color_picker' )  ) {
 		 // Scripts
-		 add_action( 'wp_enqueue_scripts', 'paperplanepopup_scripts' );
+		 if ( $load === 'yes' ) {
+			 add_action( 'wp_enqueue_scripts', 'paperplanepopup_scripts' );
+		 }
+
 		 function paperplanepopup_scripts(){
 			 // Cookies library
 			 $handle = 'https://cdn.paperplanefactory.com/js/js.cookie.min.js';
@@ -45,7 +71,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		     }
 		 }
 		 // Styles
-		 add_action( 'wp_enqueue_scripts', 'paperplanepopup_css' );
+		 if ( $load === 'yes' ) {
+			 add_action( 'wp_enqueue_scripts', 'paperplanepopup_css' );
+		 }
+
 		 function paperplanepopup_css() {
 			 wp_enqueue_style( 'paperplanepopup-commnon', plugins_url( '/css/paperplanepopup.min.css', __FILE__ ) );
 		 }
