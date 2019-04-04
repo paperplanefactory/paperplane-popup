@@ -3,7 +3,7 @@
 Plugin Name: Paperplane Popup
 Plugin URI: https://www.paperplanefactory.com
 description: A plugin to create wonderful popups. You need to activate <strong><a href="https://www.advancedcustomfields.com/pro/">ACF PRO</a> and <a href="https://wordpress.org/plugins/acf-rgba-color-picker/">ACF RGBA Color Picker</a></strong> to make Paperplane Popup work.
-Version: 2.8.3
+Version: 2.8.6
 Author: Paperplane
 Author URI: https://www.paperplanefactory.com
 Copyright: Paperplane
@@ -11,7 +11,7 @@ Copyright: Paperplane
 
 require plugin_dir_path( __FILE__ ) . '/plugin-update-checker/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-	'https://www.paperplanefactory.com/plugins/paperplane-popup-check.json',
+	'https://plugins.paperplanefactory.com/popup/paperplane-popup-check.json',
 	__FILE__, //Full path to the main plugin file or functions.php.
 	'paperplane-popup'
 );
@@ -145,14 +145,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 			require_once(plugin_dir_path( __FILE__ ) . '/inc/show-popup.php');
 		}
 		// Genero i campi necessari alla compilazione del pop up
-		require_once(plugin_dir_path( __FILE__ ) . '/inc/generate_fields.php');
+		//require_once(plugin_dir_path( __FILE__ ) . '/inc/generate_fields.php');
 
 	}
 	// se non sono attivi ACF e colorpicker mostro il messaggio di errore
 	else {
-		add_action( 'admin_notices', 'my_plugin_error_notice' );
+		add_action( 'admin_notices', 'paperplane_popup_plugin_error_notice' );
 	}
-	function my_plugin_error_notice() {
+	function paperplane_popup_plugin_error_notice() {
 		?>
 		<div class="error">
 			<p>Error: you need to activate <strong><a href="https://www.advancedcustomfields.com/pro/">ACF PRO</a> and <a href="https://wordpress.org/plugins/acf-rgba-color-picker/">ACF RGBA Color Picker</a></strong> to make Paperplane Popup work.</p>

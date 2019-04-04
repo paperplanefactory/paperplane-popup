@@ -3,7 +3,19 @@ $post_slug = get_the_ID();
 $cookie_expry = get_field( 'scadenza_cookie' );
 //converto ore in giorni
 $days_expry = ($cookie_expry / 24);
-$pop_up_timer = ( get_field( 'pop_up_timer' ) * 1000 );
+
+$quando_mostrare_pop_up = get_field( 'quando_mostrare_pop_up' );
+
+if ( $quando_mostrare_pop_up === 'subito' || $quando_mostrare_pop_up === 'scroll-tot' ) {
+  $pop_up_timer = 0;
+  $pop_up_timer_css = 0;
+}
+else {
+  $pop_up_timer = ( get_field( 'pop_up_timer' ) * 1000 );
+  $pop_up_timer_css = get_field( 'pop_up_timer' );
+}
+
+
 $show_overlay = get_field( 'show_overlay' );
 if ( $show_overlay === 'no' ) {
   $pop_up_position = get_field( 'pop_up_position' );
@@ -103,7 +115,6 @@ if ( $usare_testi === 'si' && ( $mostrare_immagine_desktop === 'no' || $mostrare
   elseif ( $bordo_arrotondato === 'rounded-big' ) {
     $round_borders = 'round-borders-big-text lines-big';
   }
-
 }
 
 $ombra_pop_up = get_field( 'ombra_pop_up' );
@@ -117,9 +128,30 @@ else {
  ?>
 <script>
 $(document).ready(function() {
+  alreayHappened = 0;
+  function checkPopupScroll() {
+    fromTop = $( document ).scrollTop();
+    if ( fromTop > <?php the_field( 'pop_up_scroller' ); ?> && alreayHappened == 0 ) {
+      alreayHappened = 1;
+      $('#cookie_box<?php echo $post_slug; ?>').fadeTo( 300, 1 );
+      $('.popup-shape').addClass('<?php the_field( 'popup_animation' ); ?>');
+    }
+  }
+
   var myCookie<?php echo $post_slug; ?> = Cookies.get('close-forever<?php echo $post_slug; ?>'); // => 'value'
   if ( typeof myCookie<?php echo $post_slug; ?> === 'undefined' || myCookie<?php echo $post_slug; ?> === null || myCookie<?php echo $post_slug; ?> === '' || myCookie<?php echo $post_slug; ?> === 'no' ) {
-    $('#cookie_box<?php echo $post_slug; ?>').delay( <?php echo $pop_up_timer; ?> ).show().fadeTo( 300, 1 );
+    var comparsion = '<?php the_field( 'quando_mostrare_pop_up' ); ?>';
+    if ( comparsion === 'scroll-tot' ) {
+      //checkPopupScroll();
+      $( document ).scroll(function() {
+    		checkPopupScroll();
+    	});
+    }
+    else {
+      $('#cookie_box<?php echo $post_slug; ?>').delay( <?php echo $pop_up_timer; ?> ).show().fadeTo( 300, 1 );
+      $('.popup-shape').addClass('<?php the_field( 'popup_animation' ); ?>');
+    }
+
   }
   else {
     $('#cookie_box<?php echo $post_slug; ?>').hide();
@@ -132,15 +164,15 @@ $(document).ready(function() {
   $('.cookie_box_close').click(function() {
     $('#cookie_box<?php echo $post_slug; ?>').fadeTo( 300, 0 ).delay( 300 ).hide();
     Cookies.set('close-forever<?php echo $post_slug; ?>', 'no', { expires: <?php echo $days_expry; ?> });
+  })
+  $(document).click(function(e) {
+    var $container = $('#cookie_box<?php echo $post_slug; ?>');
+    // if the target of the click isn't the container nor a descendant of the container
+    if ($container.is(e.target)) {
+      $('#cookie_box<?php echo $post_slug; ?>').fadeTo( 300, 0 ).delay( 300 ).hide();
+      Cookies.set('close-forever<?php echo $post_slug; ?>', 'no', { expires: <?php echo $days_expry; ?> });
+    }
   });
-$(document).click(function(e) {
-  var $container = $('#cookie_box<?php echo $post_slug; ?>');
-  // if the target of the click isn't the container nor a descendant of the container
-  if ($container.is(e.target)) {
-    $('#cookie_box<?php echo $post_slug; ?>').fadeTo( 300, 0 ).delay( 300 ).hide();
-    Cookies.set('close-forever<?php echo $post_slug; ?>', 'no', { expires: <?php echo $days_expry; ?> });
-  }
-});
 });
 </script>
 <style type="text/css">
@@ -150,19 +182,22 @@ $(document).click(function(e) {
 .popup-styler a:link, .popup-styler a:visited, .popup-styler a:hover {
   color: <?php the_field('colore_testo'); ?>;
 }
+.paperplane-popup-bounce {
+  -webkit-animation-delay: <?php echo $pop_up_timer_css; ?>s;
+  animation-delay: <?php echo $pop_up_timer_css; ?>s;
+}
 </style>
 
 <div id="cookie_box<?php echo $post_slug; ?>" class="<?php echo $popup_overlay_class; ?> <?php echo $popup_verticalize; ?> popup-<?php echo $pop_up_position; ?>" style="background-color: <?php echo $colore_overlay; ?>;">
   <div class="popup-wrapper <?php echo $round_borders; ?>" style="max-width: <?php echo $larghezza_max_pop_up; ?>px; min-width: <?php echo $larghezza_min_pop_up; ?>px;">
 
-    <div class="popup-shape <?php echo $shape_class; ?>" style="min-height: <?php echo $min_height; ?>px">
+    <div class="popup-shape <?php echo $shape_class; ?> <?php echo $shadow; ?>" style="min-height: <?php echo $min_height; ?>px">
       <?php if ( $bordo_cornice === 'si' ) : ?>
         <div class="popup-borders" style="left: <?php the_field('distanza_bordo'); ?>px; top: <?php the_field('distanza_bordo'); ?>px; border: <?php the_field('stile_bordo'); ?> <?php the_field('spessore_bordo'); ?>px <?php the_field('colore_bordo'); ?>; width: calc(100% - <?php echo $ingombro_totale; ?>px);  height: calc(100% - <?php echo $ingombro_totale; ?>px);"></div>
       <?php endif; ?>
-      <div class="popup-shape-image <?php echo $shadow; ?> <?php echo $ver_desktop; ?> <?php echo $ver_mobile; ?>" style="background-color: <?php the_field('colore_sfondo_immagine'); ?>;">
-        <a href="<?php the_field( 'scegli_url' ); ?>" target="<?php the_field( 'scegli_url_target' ); ?>" class="cookie_box_close_forever<?php echo $post_slug; ?>">
-          <?php require_once( plugin_dir_path( __FILE__ ) . '/image-display-popup.php'); ?>
-        </a>
+      <div class="popup-shape-image <?php echo $ver_desktop; ?> <?php echo $ver_mobile; ?>" style="background-color: <?php the_field('colore_sfondo_immagine'); ?>;">
+        <?php require_once( plugin_dir_path( __FILE__ ) . '/image-display-popup.php'); ?>
+        <a href="<?php the_field( 'scegli_url' ); ?>" target="<?php the_field( 'scegli_url_target' ); ?>" class="cookie_box_close_forever<?php echo $post_slug; ?> popup-absl-link"></a>
       </div>
       <?php if ( $show_close_button === 'si' ) : ?>
         <div class="popup-close-<?php echo $close_button_shape; ?> popup-close-<?php echo $close_button_position; ?> cookie_box_close_forever<?php echo $post_slug; ?>">
@@ -180,7 +215,7 @@ $(document).click(function(e) {
         </div>
       <?php endif; ?>
       <?php if ( $usare_testi === 'si' ) : ?>
-        <div class="popup-shape-texts <?php echo $shadow; ?> popup-contents " style="background-color: <?php the_field('colore_sfondo'); ?>;">
+        <div class="popup-shape-texts popup-contents " style="background-color: <?php the_field('colore_sfondo'); ?>;">
           <div class="verticalizer">
             <div class="popup-padder <?php echo $scroll_mobile; ?>">
               <div style="color: <?php the_field('colore_titolo'); ?>;">
