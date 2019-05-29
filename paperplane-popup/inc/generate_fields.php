@@ -19,7 +19,7 @@ acf_add_local_field_group(array(
 				'id' => '',
 			),
 			'open' => 1,
-			'multi_expand' => 0,
+			'multi_expand' => 1,
 			'endpoint' => 0,
 		),
 		array(
@@ -46,7 +46,9 @@ acf_add_local_field_group(array(
 			'label' => 'Scegli una URL di destinazione',
 			'name' => 'scegli_url',
 			'type' => 'url',
-			'instructions' => 'Questo è il link di destinazione se viene impostata un\'immagine o una CTA.<br />Cliccando l\'immagine, la CTA o uno qualsiasi dei link all\'interno del pop up l\'utente verrà mandato alla pagina di destinazione e il pop up non si aprirà più (fino alla scadenza dei cookie) in quanto l\'obbiettivo è stato raggiunto.',
+			'instructions' => 'Questo è il link di destinazione se viene impostata un\'immagine o una CTA.<br />
+Cliccando l\'immagine, la CTA o uno qualsiasi dei link all\'interno del pop up l\'utente verrà mandato alla pagina di destinazione e il pop up non si aprirà più (fino alla scadenza dei cookie) in quanto l\'obbiettivo è stato raggiunto.<br />
+Se la URL che impostate in questo campo corrisponde alla URL che viene visitata dall\'utente il pop up non comparirà in quella specifica pagina.',
 			'required' => 1,
 			'conditional_logic' => 0,
 			'wrapper' => array(
@@ -88,7 +90,8 @@ acf_add_local_field_group(array(
 			'label' => 'Scadenza cookie',
 			'name' => 'scadenza_cookie',
 			'type' => 'number',
-			'instructions' => 'Il pop-up genera un cookie per ogni utente che visita il sito. Quando l\'utente chiude il pop-up (o clicca uno dei link al suo interno) il cookie viene impostato per avere un intervallo in modo tale da non far comparire continuamente il pop-up allo stesso visitatore. Scegliere qui quanto deve durare l\'intervallo (in ore) che di default è impostato a 7 ore.',
+			'instructions' => 'Il pop-up genera un cookie per ogni utente che visita il sito. Quando l\'utente chiude il pop-up (o clicca uno dei link al suo interno) il cookie viene impostato per avere un intervallo in modo tale da non far comparire continuamente il pop-up allo stesso visitatore. Scegliere qui quanto deve durare l\'intervallo (in ore) che di default è impostato a 7 ore.<br />
+Esempio er un mese: 24x31 = 744',
 			'required' => 1,
 			'conditional_logic' => 0,
 			'wrapper' => array(
@@ -172,9 +175,7 @@ acf_add_local_field_group(array(
 			),
 			'post_type' => array(
 				0 => 'page',
-				1 => 'portfolio_item',
-				2 => 'post',
-				3 => 'lp',
+				1 => 'post',
 			),
 			'taxonomy' => '',
 			'allow_null' => 0,
@@ -206,27 +207,6 @@ acf_add_local_field_group(array(
 			'select_type' => 0,
 		),
 		array(
-			'key' => 'field_5b0956b11ae51',
-			'label' => 'Dopo quanto vuoi far comparire il pop up?',
-			'name' => 'pop_up_timer',
-			'type' => 'number',
-			'instructions' => 'Inserire un numero che corrisponde ai secondi di ritardo con i quai il pop up comparirà. 0 = immediatamente.',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => 0,
-			'placeholder' => '',
-			'prepend' => '',
-			'append' => '',
-			'min' => '',
-			'max' => '',
-			'step' => '0.5',
-		),
-		array(
 			'key' => 'field_5bf950b00e536',
 			'label' => 'Gestione immagini',
 			'name' => '',
@@ -239,8 +219,8 @@ acf_add_local_field_group(array(
 				'class' => '',
 				'id' => '',
 			),
-			'open' => 0,
-			'multi_expand' => 0,
+			'open' => 1,
+			'multi_expand' => 1,
 			'endpoint' => 0,
 		),
 		array(
@@ -267,42 +247,6 @@ acf_add_local_field_group(array(
 			'ui' => 0,
 			'ajax' => 0,
 			'return_format' => 'value',
-			'placeholder' => '',
-		),
-		array(
-			'key' => 'field_5c4ed890ce93b',
-			'label' => 'Posizionamento immagine / testo',
-			'name' => 'posizionamento_immagine_testo',
-			'type' => 'select',
-			'instructions' => 'Scegliendo l\'opzione "Immagine a sinistra e testo a destra" o "Testo a sinistra e immagine a destra" sarà possibile impostare un\'altezza minima del pop up e nella maggior parte dei casi l\'immagine sarà adattata allo spazio disponibile.',
-			'required' => 1,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field' => 'field_5afc388f3d607',
-						'operator' => '==',
-						'value' => 'si',
-					),
-				),
-			),
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'choices' => array(
-				'immagine-testo' => 'Immagine sopra e testo sotto',
-				'testo-immagine' => 'Testo sopra e immagine sotto',
-				'immagine-testo-side' => 'Immagine a sinistra e testo a destra',
-				'testo-immagine-side' => 'Testo a sinistra e immagine a destra',
-			),
-			'default_value' => array(
-			),
-			'allow_null' => 0,
-			'multiple' => 0,
-			'ui' => 0,
-			'return_format' => 'value',
-			'ajax' => 0,
 			'placeholder' => '',
 		),
 		array(
@@ -425,36 +369,6 @@ acf_add_local_field_group(array(
 			'mime_types' => '',
 		),
 		array(
-			'key' => 'field_5c4f06899b4d2',
-			'label' => 'Scegli un colore di sfondo per l\'immagine',
-			'name' => 'colore_sfondo_immagine',
-			'type' => 'color_picker',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field' => 'field_5afc38bd3d608',
-						'operator' => '==',
-						'value' => 'si',
-					),
-				),
-				array(
-					array(
-						'field' => 'field_5afc388f3d607',
-						'operator' => '==',
-						'value' => 'si',
-					),
-				),
-			),
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-		),
-		array(
 			'key' => 'field_5c546a64b47e4',
 			'label' => 'Gestione testi e contenuti',
 			'name' => '',
@@ -467,24 +381,9 @@ acf_add_local_field_group(array(
 				'class' => '',
 				'id' => '',
 			),
-			'open' => 0,
-			'multi_expand' => 0,
+			'open' => 1,
+			'multi_expand' => 1,
 			'endpoint' => 0,
-		),
-		array(
-			'key' => 'field_5afc39f34552e',
-			'label' => 'Colore di sfondo',
-			'name' => 'colore_sfondo',
-			'type' => 'color_picker',
-			'instructions' => '',
-			'required' => 1,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
 		),
 		array(
 			'key' => 'field_5afc3a4745531',
@@ -513,6 +412,42 @@ acf_add_local_field_group(array(
 			'placeholder' => '',
 		),
 		array(
+			'key' => 'field_5b2a749112c13',
+			'label' => 'Scegli se inserire testo, codice HTML, embed o shortcode',
+			'name' => 'testo_o_html',
+			'type' => 'select',
+			'instructions' => 'Max. 300 caratteri.',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5afc3a4745531',
+						'operator' => '==',
+						'value' => 'si',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array(
+				'txt' => 'Testo',
+				'html' => 'Codice HTML',
+				'embed' => 'Embed',
+				'shortcode' => 'Shortcode',
+			),
+			'default_value' => array(
+			),
+			'allow_null' => 0,
+			'multiple' => 0,
+			'ui' => 0,
+			'return_format' => 'value',
+			'ajax' => 0,
+			'placeholder' => '',
+		),
+		array(
 			'key' => 'field_5afc39934552a',
 			'label' => 'Titolo',
 			'name' => 'titolo',
@@ -538,64 +473,6 @@ acf_add_local_field_group(array(
 			'prepend' => '',
 			'append' => '',
 			'maxlength' => 60,
-		),
-		array(
-			'key' => 'field_5afc3a044552f',
-			'label' => 'Colore titolo',
-			'name' => 'colore_titolo',
-			'type' => 'color_picker',
-			'instructions' => '',
-			'required' => 1,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field' => 'field_5afc3a4745531',
-						'operator' => '==',
-						'value' => 'si',
-					),
-				),
-			),
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-		),
-		array(
-			'key' => 'field_5b2a749112c13',
-			'label' => 'Scegli se inserire testo, codice HTML o embed',
-			'name' => 'testo_o_html',
-			'type' => 'select',
-			'instructions' => 'Max. 300 caratteri.',
-			'required' => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field' => 'field_5afc3a4745531',
-						'operator' => '==',
-						'value' => 'si',
-					),
-				),
-			),
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'choices' => array(
-				'txt' => 'Testo',
-				'html' => 'Codice HTML',
-				'embed' => 'Embed',
-			),
-			'default_value' => array(
-			),
-			'allow_null' => 0,
-			'multiple' => 0,
-			'ui' => 0,
-			'ajax' => 0,
-			'return_format' => 'value',
-			'placeholder' => '',
 		),
 		array(
 			'key' => 'field_5afc399d4552b',
@@ -691,11 +568,11 @@ acf_add_local_field_group(array(
 			'height' => '',
 		),
 		array(
-			'key' => 'field_5b07c4cbfe2c1',
-			'label' => 'Colore testo',
-			'name' => 'colore_testo',
-			'type' => 'color_picker',
-			'instructions' => '',
+			'key' => 'field_5cab3d266bff4',
+			'label' => 'Shortcode',
+			'name' => 'shortcode',
+			'type' => 'text',
+			'instructions' => 'Scegliendo questa opzione consigliamo di rimuovere le immagini nella sezione "Gesione immagini" per una corretta visualizzazione su tutti gli schermi.',
 			'required' => 1,
 			'conditional_logic' => array(
 				array(
@@ -703,6 +580,11 @@ acf_add_local_field_group(array(
 						'field' => 'field_5afc3a4745531',
 						'operator' => '==',
 						'value' => 'si',
+					),
+					array(
+						'field' => 'field_5b2a749112c13',
+						'operator' => '==',
+						'value' => 'shortcode',
 					),
 				),
 			),
@@ -712,6 +594,10 @@ acf_add_local_field_group(array(
 				'id' => '',
 			),
 			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
 		),
 		array(
 			'key' => 'field_5afc39ba4552c',
@@ -741,9 +627,9 @@ acf_add_local_field_group(array(
 			'maxlength' => 60,
 		),
 		array(
-			'key' => 'field_5afc3a3345530',
-			'label' => 'Colore link',
-			'name' => 'colore_link',
+			'key' => 'field_5afc39f34552e',
+			'label' => 'Colore di sfondo area testi',
+			'name' => 'colore_sfondo',
 			'type' => 'color_picker',
 			'instructions' => '',
 			'required' => 1,
@@ -764,8 +650,199 @@ acf_add_local_field_group(array(
 			'default_value' => '',
 		),
 		array(
+			'key' => 'field_5afc3a044552f',
+			'label' => 'Colore titolo',
+			'name' => 'colore_titolo',
+			'type' => 'color_picker',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5afc3a4745531',
+						'operator' => '==',
+						'value' => 'si',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+		),
+		array(
+			'key' => 'field_5b07c4cbfe2c1',
+			'label' => 'Colore testo',
+			'name' => 'colore_testo',
+			'type' => 'color_picker',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5afc3a4745531',
+						'operator' => '==',
+						'value' => 'si',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+		),
+		array(
+			'key' => 'field_5afc3a3345530',
+			'label' => 'Colore testo bottone CTA',
+			'name' => 'colore_link',
+			'type' => 'color_picker',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5afc3a4745531',
+						'operator' => '==',
+						'value' => 'si',
+					),
+					array(
+						'field' => 'field_5afc39ba4552c',
+						'operator' => '!=empty',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+		),
+		array(
+			'key' => 'field_5caf07d213888',
+			'label' => 'Colore di background per bottone CTA',
+			'name' => 'colore_background_cta',
+			'type' => 'color_picker',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5afc3a4745531',
+						'operator' => '==',
+						'value' => 'si',
+					),
+					array(
+						'field' => 'field_5afc39ba4552c',
+						'operator' => '!=empty',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+		),
+		array(
+			'key' => 'field_5caf753e610ad',
+			'label' => 'Posizionamento combo immagine + testo',
+			'name' => '',
+			'type' => 'accordion',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'open' => 1,
+			'multi_expand' => 1,
+			'endpoint' => 0,
+		),
+		array(
+			'key' => 'field_5c4ed890ce93b',
+			'label' => 'Posizionamento immagine / testo',
+			'name' => 'posizionamento_immagine_testo',
+			'type' => 'select',
+			'instructions' => 'Scegliendo l\'opzione "Immagine a sinistra e testo a destra" o "Testo a sinistra e immagine a destra" sarà possibile impostare un\'altezza minima del pop up e nella maggior parte dei casi l\'immagine sarà adattata allo spazio disponibile.<br />
+Il posizionamento è attivo solo su desktop. Su mobile verrà considerata solo la combinazione "Immagine sopra e testo sotto" oppure "Testo sopra e immagine sotto"',
+			'required' => 1,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5afc388f3d607',
+						'operator' => '==',
+						'value' => 'si',
+					),
+					array(
+						'field' => 'field_5afc3a4745531',
+						'operator' => '==',
+						'value' => 'si',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array(
+				'immagine-testo' => 'Immagine sopra e testo sotto',
+				'testo-immagine' => 'Testo sopra e immagine sotto',
+				'immagine-testo-side' => 'Immagine a sinistra e testo a destra',
+				'testo-immagine-side' => 'Testo a sinistra e immagine a destra',
+			),
+			'default_value' => array(
+			),
+			'allow_null' => 0,
+			'multiple' => 0,
+			'ui' => 0,
+			'return_format' => 'value',
+			'ajax' => 0,
+			'placeholder' => '',
+		),
+		array(
+			'key' => 'field_5caf75e706201',
+			'label' => 'Attenzione!',
+			'name' => '',
+			'type' => 'message',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5afc388f3d607',
+						'operator' => '==',
+						'value' => 'no',
+					),
+				),
+				array(
+					array(
+						'field' => 'field_5afc3a4745531',
+						'operator' => '==',
+						'value' => 'no',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'message' => 'Queste opzioni sono disponibili solo se nelle altre impostazioni hai deciso di utilizzare sia l\'immagine desktop che i testi!',
+			'new_lines' => 'wpautop',
+			'esc_html' => 0,
+		),
+		array(
 			'key' => 'field_5c5472553a4d7',
-			'label' => 'Gestione bordi, ombra e animazioni',
+			'label' => 'Gestione bordi e ombra',
 			'name' => '',
 			'type' => 'accordion',
 			'instructions' => 'Scegli se utilizzare i bordi e le relative impostazioni.',
@@ -777,7 +854,7 @@ acf_add_local_field_group(array(
 				'id' => '',
 			),
 			'open' => 0,
-			'multi_expand' => 0,
+			'multi_expand' => 1,
 			'endpoint' => 0,
 		),
 		array(
@@ -932,15 +1009,7 @@ acf_add_local_field_group(array(
 			'type' => 'select',
 			'instructions' => 'Sia i bordi che il contorno del pop up saranno arrotondati.',
 			'required' => 1,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field' => 'field_5c54693f67cfa',
-						'operator' => '==',
-						'value' => 'si',
-					),
-				),
-			),
+			'conditional_logic' => 0,
 			'wrapper' => array(
 				'width' => '',
 				'class' => '',
@@ -967,15 +1036,7 @@ acf_add_local_field_group(array(
 			'type' => 'select',
 			'instructions' => '',
 			'required' => 1,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field' => 'field_5c54693f67cfa',
-						'operator' => '==',
-						'value' => 'si',
-					),
-				),
-			),
+			'conditional_logic' => 0,
 			'wrapper' => array(
 				'width' => '',
 				'class' => '',
@@ -984,32 +1045,6 @@ acf_add_local_field_group(array(
 			'choices' => array(
 				'no' => 'No',
 				'si' => 'Sì',
-			),
-			'default_value' => array(
-			),
-			'allow_null' => 0,
-			'multiple' => 0,
-			'ui' => 0,
-			'return_format' => 'value',
-			'ajax' => 0,
-			'placeholder' => '',
-		),
-		array(
-			'key' => 'field_5c9ddb43cd021',
-			'label' => 'Scegli l\'animazione',
-			'name' => 'popup_animation',
-			'type' => 'select',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'choices' => array(
-				'none' => 'Nessuna',
-				'paperplane-popup-bounce' => 'Bounce',
 			),
 			'default_value' => array(
 			),
@@ -1033,8 +1068,8 @@ acf_add_local_field_group(array(
 				'class' => '',
 				'id' => '',
 			),
-			'open' => 0,
-			'multi_expand' => 0,
+			'open' => 1,
+			'multi_expand' => 1,
 			'endpoint' => 0,
 		),
 		array(
@@ -1099,6 +1134,27 @@ Se non utilizzi l\'overlay potrai scegliere dove posizionare il pop up dalla tab
 			'hide_palette' => 0,
 		),
 		array(
+			'key' => 'field_5cacc4002dc8d',
+			'label' => 'Larghezza minima pop up',
+			'name' => 'larghezza_min_pop_up',
+			'type' => 'number',
+			'instructions' => 'Inserire un valore in pixel che verrà utilizzato solo su desktop. Usare un valore compreso tra 1 e 400px.',
+			'required' => 1,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => 450,
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'min' => 400,
+			'max' => 980,
+			'step' => '',
+		),
+		array(
 			'key' => 'field_5b083472c2f81',
 			'label' => 'Larghezza massima pop up',
 			'name' => 'larghezza_max_pop_up',
@@ -1156,6 +1212,137 @@ Se non utilizzi l\'overlay potrai scegliere dove posizionare il pop up dalla tab
 			'placeholder' => '',
 		),
 		array(
+			'key' => 'field_5caef7e758d8a',
+			'label' => 'Gestione animazioni',
+			'name' => '',
+			'type' => 'accordion',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'open' => 1,
+			'multi_expand' => 1,
+			'endpoint' => 0,
+		),
+		array(
+			'key' => 'field_5c9ddb43cd021',
+			'label' => 'Scegli l\'animazione',
+			'name' => 'popup_animation',
+			'type' => 'select',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array(
+				'none' => 'Nessuna',
+				'paperplane-popup-bounce' => 'Bounce',
+				'paperplane-popup-rotate' => 'Rotazione',
+				'paperplane-popup-swing' => 'Swing',
+			),
+			'default_value' => array(
+			),
+			'allow_null' => 0,
+			'multiple' => 0,
+			'ui' => 0,
+			'return_format' => 'value',
+			'ajax' => 0,
+			'placeholder' => '',
+		),
+		array(
+			'key' => 'field_5ca5d667a6cc9',
+			'label' => 'Quando vuoi far comparire il pop up?',
+			'name' => 'quando_mostrare_pop_up',
+			'type' => 'select',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array(
+				'subito' => 'Subito',
+				'after-tot' => 'Dopo tot secondi',
+				'scroll-tot' => 'Dopo X pixel di scroll',
+				'scroll-half' => 'Dopo aver scollato metà pagina',
+			),
+			'default_value' => array(
+			),
+			'allow_null' => 0,
+			'multiple' => 0,
+			'ui' => 0,
+			'return_format' => 'value',
+			'ajax' => 0,
+			'placeholder' => '',
+		),
+		array(
+			'key' => 'field_5b0956b11ae51',
+			'label' => 'Dopo quanto vuoi far comparire il pop up?',
+			'name' => 'pop_up_timer',
+			'type' => 'number',
+			'instructions' => 'Inserire un numero che corrisponde ai secondi di ritardo con i quai il pop up comparirà. 0 = immediatamente.',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5ca5d667a6cc9',
+						'operator' => '==',
+						'value' => 'after-tot',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => 0,
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'min' => '',
+			'max' => '',
+			'step' => '0.5',
+		),
+		array(
+			'key' => 'field_5ca5d6daa6cca',
+			'label' => 'Dopo quanti pixel di scroll far comparire il pop up?',
+			'name' => 'pop_up_scroller',
+			'type' => 'number',
+			'instructions' => 'Inserire un numero che corrisponde ai pixel di scroll oltre i quai il pop up comparirà. 0 = immediatamente.',
+			'required' => 1,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5ca5d667a6cc9',
+						'operator' => '==',
+						'value' => 'scroll-tot',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => 0,
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'min' => '',
+			'max' => '',
+			'step' => '0.5',
+		),
+		array(
 			'key' => 'field_5c89305c92b1c',
 			'label' => 'Gestione pulsante di chiusura',
 			'name' => '',
@@ -1168,8 +1355,8 @@ Se non utilizzi l\'overlay potrai scegliere dove posizionare il pop up dalla tab
 				'class' => '',
 				'id' => '',
 			),
-			'open' => 0,
-			'multi_expand' => 0,
+			'open' => 1,
+			'multi_expand' => 1,
 			'endpoint' => 0,
 		),
 		array(
@@ -1389,7 +1576,7 @@ Se hai scelto di utilizzare l\'overlay (e quindi di posizionare il pop up al cen
 			array(
 				'param' => 'post_type',
 				'operator' => '==',
-				'value' => 'popup',
+				'value' => 'paperplane-popup',
 			),
 		),
 	),

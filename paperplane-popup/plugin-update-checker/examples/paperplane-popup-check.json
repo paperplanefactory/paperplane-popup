@@ -1,12 +1,12 @@
 {
 	"name": "Paperplane Popup",
-	"version": "2.8.6",
+	"version": "2.9.4",
 	"download_url": "https://plugins.paperplanefactory.com/popup/paperplane-popup.zip",
 
 	"homepage": "https://www.paperplanefactory.com/",
 	"requires": "4.5",
 	"tested": "5.1.1",
-	"last_updated": "2019-03-28 16:17:00",
+	"last_updated": "2019-05-15 16:17:00",
 	"upgrade_notice": "Get new features...",
 
 	"author": "Paperplane, Giovanni Invernizzi",
