@@ -173,7 +173,9 @@ include( plugin_dir_path( __FILE__ ) . '../js/popup-scripts.php');
       <?php endif; ?>
       <div class="popup-shape-image <?php echo $ver_desktop; ?> <?php echo $ver_mobile; ?>">
         <?php include( plugin_dir_path( __FILE__ ) . '/image-display-popup.php'); ?>
-        <a href="<?php the_field( 'scegli_url' ); ?>" target="<?php the_field( 'scegli_url_target' ); ?>" class="cookie_box_close_forever<?php echo $post_slug; ?> popup-absl-link"></a>
+        <?php if( get_field( 'scegli_url' ) ) : ?>
+          <a href="<?php the_field( 'scegli_url' ); ?>" target="<?php the_field( 'scegli_url_target' ); ?>" class="cookie_box_close_forever<?php echo $post_slug; ?> popup-absl-link"></a>
+        <?php endif; ?>
       </div>
 
       <?php if ( $usare_testi === 'si' ) : ?>
@@ -206,7 +208,7 @@ include( plugin_dir_path( __FILE__ ) . '../js/popup-scripts.php');
                   <?php  echo do_shortcode(''.$shortcode.''); ?>
                 </div>
               <?php endif; ?>
-              <?php if ( get_field( 'cta' ) ) : ?>
+              <?php if ( get_field( 'cta' ) && get_field( 'scegli_url' ) ) : ?>
                 <a href="<?php the_field( 'scegli_url' ); ?>" target="<?php the_field( 'scegli_url_target' ); ?>" class="cookie_box_close_forever<?php echo $post_slug; ?> popup-cta-btn" style="background-color: <?php the_field('colore_background_cta'); ?>; color: <?php the_field('colore_link'); ?>;">
                   <?php the_field("cta"); ?>
                 </a>

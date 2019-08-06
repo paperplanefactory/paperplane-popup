@@ -47,9 +47,9 @@ acf_add_local_field_group(array(
 			'name' => 'scegli_url',
 			'type' => 'url',
 			'instructions' => 'Questo è il link di destinazione se viene impostata un\'immagine o una CTA.<br />
-Cliccando l\'immagine, la CTA o uno qualsiasi dei link all\'interno del pop up l\'utente verrà mandato alla pagina di destinazione e il pop up non si aprirà più (fino alla scadenza dei cookie) in quanto l\'obbiettivo è stato raggiunto.<br />
+Cliccando l\'immagine o la CTA l\'utente verrà mandato alla pagina di destinazione e il pop up non si aprirà più (fino alla scadenza dei cookie) in quanto l\'obbiettivo è stato raggiunto.<br />
 Se la URL che impostate in questo campo corrisponde alla URL che viene visitata dall\'utente il pop up non comparirà in quella specifica pagina.',
-			'required' => 1,
+			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(
 				'width' => '',
@@ -604,7 +604,8 @@ Esempio er un mese: 24x31 = 744',
 			'label' => 'CTA',
 			'name' => 'cta',
 			'type' => 'text',
-			'instructions' => 'Max. 60 caratteri.',
+			'instructions' => 'Max. 60 caratteri.<br />
+Impostando una CTA verificare di avere inserito una URL nel campo "Gestione comportamento > Scegli una URL di destinazione".',
 			'required' => 0,
 			'conditional_logic' => array(
 				array(

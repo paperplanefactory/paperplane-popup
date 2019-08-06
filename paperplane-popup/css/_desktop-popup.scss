@@ -118,6 +118,10 @@
 }
 
 .popup-top-right {
+	.popup-close-def-set {
+		left: -10px;
+		bottom: -10px;
+	}
 	.popup-close-def-set-text {
 		right: 5px;
 		bottom: -35px;
@@ -139,6 +143,10 @@
 }
 
 .popup-top-left {
+	.popup-close-def-set {
+		right: -10px;
+		bottom: -10px;
+	}
 	.popup-close-def-set-text {
 		left: 5px;
 		bottom: -35px;
@@ -160,6 +168,10 @@
 }
 
 .popup-bottom-right {
+	.popup-close-def-set {
+		left: -10px;
+		top: -10px;
+	}
 	.popup-close-def-set-text {
 		right: 5px;
 		top: -35px;
@@ -181,6 +193,10 @@
 }
 
 .popup-bottom-left {
+	.popup-close-def-set {
+		right: -10px;
+		top: -10px;
+	}
 	.popup-close-def-set-text {
 		left: 5px;
 		top: -35px;
