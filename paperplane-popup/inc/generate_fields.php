@@ -45,7 +45,7 @@ acf_add_local_field_group(array(
 			'key' => 'field_5afc39c44552d',
 			'label' => 'Scegli una URL di destinazione',
 			'name' => 'scegli_url',
-			'type' => 'url',
+			'type' => 'text',
 			'instructions' => 'Questo è il link di destinazione se viene impostata un\'immagine o una CTA.<br />
 Cliccando l\'immagine o la CTA l\'utente verrà mandato alla pagina di destinazione e il pop up non si aprirà più (fino alla scadenza dei cookie) in quanto l\'obbiettivo è stato raggiunto.<br />
 Se la URL che impostate in questo campo corrisponde alla URL che viene visitata dall\'utente il pop up non comparirà in quella specifica pagina.',
