@@ -3,7 +3,7 @@
 Plugin Name: Paperplane Popup
 Plugin URI: https://github.com/paperplanefactory/paperplane-popup
 description: A plugin to create wonderful popups. You need to activate <strong><a href="https://www.advancedcustomfields.com/pro/">ACF PRO</a> and <a href="https://wordpress.org/plugins/acf-rgba-color-picker/">ACF RGBA Color Picker</a></strong> to make Paperplane Popup work.
-Version: 2.9.9
+Version: 3.0.0
 Author: Paperplane
 Author URI: https://www.paperplanefactory.com
 Copyright: Paperplane
