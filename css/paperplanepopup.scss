@@ -1,0 +1,9 @@
+@import 'commons-popup';
+@import 'effects-popup';
+@media screen and (min-width: 1px) and  (max-width: 1023px) {
+	@import 'mobile-popup';
+}
+
+@media screen and (min-width: 1024px) {
+	@import 'desktop-popup';
+}
