@@ -1,12 +1,13 @@
 <?php
 /*
 Plugin Name: Paperplane Popup
-Plugin URI: https://www.paperplanefactory.com
+Plugin URI: https://github.com/paperplanefactory/paperplane-popup
 description: A plugin to create wonderful popups. You need to activate <strong><a href="https://www.advancedcustomfields.com/pro/">ACF PRO</a> and <a href="https://wordpress.org/plugins/acf-rgba-color-picker/">ACF RGBA Color Picker</a></strong> to make Paperplane Popup work.
-Version: 2.9.8
+Version: 2.9.9
 Author: Paperplane
 Author URI: https://www.paperplanefactory.com
 Copyright: Paperplane
+GitHub Plugin URI: https://github.com/paperplanefactory/paperplane-popup
 */
 
 // Exit if accessed directly.
@@ -15,16 +16,6 @@ if( ! defined( 'ABSPATH' ) ) exit;
  function paperplanePopup_init() {
 	 // verifico che siano attivi ACF e colorpicker
 	 if( class_exists( 'ACF' ) && class_exists( 'dhz_acf_plugin_extended_color_picker' ) && class_exists( 'acf_field_post_type_selector_plugin' )  ) {
-		 require plugin_dir_path( __FILE__ ) . '/plugin-update-checker/plugin-update-checker.php';
-		 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-		 	'https://plugins.paperplanefactory.com/popup/paperplane-popup-check.json',
-		 	__FILE__, //Full path to the main plugin file or functions.php.
-		 	'paperplane-popup'
-		 );
-
-
-
-
      add_action( 'save_post', 'paperplanepopup_transient_clear', 10,3 );
      function paperplanepopup_transient_clear( $post_id, $post, $update ) {
        if ( 'paperplane-popup' === $post->post_type ) {
