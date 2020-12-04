@@ -3,7 +3,7 @@
 Plugin Name: Paperplane Popup
 Plugin URI: https://github.com/paperplanefactory/paperplane-popup
 description: A plugin to create wonderful popups. You need to activate <strong><a href="https://www.advancedcustomfields.com/pro/">ACF PRO</a> and <a href="https://wordpress.org/plugins/acf-rgba-color-picker/">ACF RGBA Color Picker</a></strong> to make Paperplane Popup work.
-Version: 3.0.1
+Version: 3.0.3
 Author: Paperplane
 Author URI: https://www.paperplanefactory.com
 Copyright: Paperplane
@@ -51,27 +51,17 @@ if( ! defined( 'ABSPATH' ) ) exit;
 		 // Scripts
 		 function paperplanepopup_scripts(){
        if (!is_admin()) {
-				 $handle_jquerylib = 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js';
+				 $handle_jquerylib = 'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js';
 			   $list_jquerylib = 'enqueued';
 				 if ( wp_script_is( $handle_jquerylib, $list_jquerylib ) ) {
 		       return;
 		     }
          else {
 					 wp_deregister_script('jquery');
-					 wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', '', '3.2.1', false);
+					 wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js', '', '3.5.1', false);
 					 wp_enqueue_script('jquery');
 		     }
 		  }
-			 // Cookies library
-			 $handle = 'https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js';
-		   $list = 'enqueued';
-       if (wp_script_is( $handle, $list )) {
-         return;
-       }
-       else {
-         wp_register_script( 'js-cookie', 'https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js', '', '2.2.0', false);
-         wp_enqueue_script( 'js-cookie' );
-       }
 		 }
 		 // Styles
 		 function paperplanepopup_css() {

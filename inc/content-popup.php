@@ -2,7 +2,7 @@
 $post_slug = get_the_ID();
 $cookie_expry = get_field( 'scadenza_cookie' );
 //converto ore in giorni
-$days_expry = ($cookie_expry / 24);
+$days_expry = $cookie_expry;
 
 $quando_mostrare_pop_up = get_field( 'quando_mostrare_pop_up' );
 $scroll_distance = 0;

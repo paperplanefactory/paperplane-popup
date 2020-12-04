@@ -27,7 +27,7 @@ acf_add_local_field_group(array(
 			'label' => 'Test mode',
 			'name' => 'test_mode',
 			'type' => 'true_false',
-			'instructions' => 'Con il test mode attivo solo gli utenti loggati potranno vedere i pop up. Utile per fare dei test.',
+			'instructions' => 'Con il test mode attivo solo gli utenti loggati potranno vedere i pop up. Utile per fare dei test senza che i visitatori possano vedere il popup.',
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(
@@ -58,6 +58,9 @@ Se la URL che impostate in questo campo corrisponde alla URL che viene visitata 
 			),
 			'default_value' => '',
 			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
 		),
 		array(
 			'key' => 'field_5b07c92778ef1',
@@ -90,7 +93,7 @@ Se la URL che impostate in questo campo corrisponde alla URL che viene visitata 
 			'label' => 'Scadenza cookie',
 			'name' => 'scadenza_cookie',
 			'type' => 'number',
-			'instructions' => 'Il pop-up genera un cookie per ogni utente che visita il sito. Quando l\'utente chiude il pop-up (o clicca uno dei link al suo interno) il cookie viene impostato per avere un intervallo in modo tale da non far comparire continuamente il pop-up allo stesso visitatore. Scegliere qui quanto deve durare l\'intervallo (in ore) che di default è impostato a 7 ore.<br />
+			'instructions' => 'Il pop-up genera un cookie per ogni utente che visita il sito. Quando l\'utente chiude il pop-up (o clicca uno dei link al suo interno) il cookie viene impostato per avere un intervallo in modo tale da non far comparire continuamente il pop-up allo stesso visitatore. Scegliere qui quanto deve durare l\'intervallo (in ore) che di default è impostato a 24 ore.<br />
 Esempio er un mese: 24x31 = 744',
 			'required' => 1,
 			'conditional_logic' => 0,
@@ -99,7 +102,7 @@ Esempio er un mese: 24x31 = 744',
 				'class' => '',
 				'id' => '',
 			),
-			'default_value' => 7,
+			'default_value' => 14,
 			'placeholder' => '',
 			'prepend' => '',
 			'append' => '',
@@ -1082,15 +1085,7 @@ Il posizionamento è attivo solo su desktop. Su mobile verrà considerata solo l
 Se scegli di utilizzare l\'overlay il pop up verrà posizionato al centro dello schermo.<br />
 Se non utilizzi l\'overlay potrai scegliere dove posizionare il pop up dalla tab "Gestione dimensione e posizione".',
 			'required' => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field' => 'field_5b12901e6d6ff',
-						'operator' => '==',
-						'value' => 'si',
-					),
-				),
-			),
+			'conditional_logic' => 0,
 			'wrapper' => array(
 				'width' => '',
 				'class' => '',
@@ -1100,8 +1095,7 @@ Se non utilizzi l\'overlay potrai scegliere dove posizionare il pop up dalla tab
 				'si' => 'Sì',
 				'no' => 'No',
 			),
-			'default_value' => array(
-			),
+			'default_value' => false,
 			'allow_null' => 0,
 			'multiple' => 0,
 			'ui' => 0,
@@ -1203,8 +1197,7 @@ Se non utilizzi l\'overlay potrai scegliere dove posizionare il pop up dalla tab
 				'bottom-right' => 'In basso a destra',
 				'bottom-left' => 'In basso a sinistra',
 			),
-			'default_value' => array(
-			),
+			'default_value' => false,
 			'allow_null' => 0,
 			'multiple' => 0,
 			'ui' => 0,
