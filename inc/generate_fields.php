@@ -417,7 +417,9 @@ Esempio er un mese: 24x31 = 744',
 				'class' => '',
 				'id' => '',
 			),
-			'default_value' => '',
+			'default_value' => '<!--
+<a href="#" target="#" class="cookie_box_close_forever123 popup-cta-btn">testo cta</a>
+-->',
 			'placeholder' => '',
 			'maxlength' => '',
 			'rows' => '',
