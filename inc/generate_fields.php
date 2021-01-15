@@ -407,7 +407,7 @@ Esempio er un mese: 24x31 = 744',
 		array(
 			'key' => 'field_6000779a01722',
 			'label' => 'Codice HTML',
-			'name' => 'html',
+			'name' => 'html-round',
 			'type' => 'textarea',
 			'instructions' => '',
 			'required' => 1,

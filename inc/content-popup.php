@@ -98,7 +98,8 @@ $bordo_arrotondato = get_field( 'bordi_arrotondati' );
 if ( $bordo_arrotondato === 'rounded-all' ) {
   $larghezza_max_pop_up = '400';
   $larghezza_min_pop_up = '400';
-  $testo_o_html = 'html';
+  $testo_o_html = 'html-round';
+  $usare_testi = 'si';
 }
 
 $round_borders = '';
@@ -212,6 +213,10 @@ include( plugin_dir_path( __FILE__ ) . '../js/popup-scripts.php');
                 ?>
                 <div class="popup-styler">
                   <?php  echo do_shortcode(''.$shortcode.''); ?>
+                </div>
+              <?php elseif ( $testo_o_html === 'html-round' ) : ?>
+                <div class="popup-styler">
+                  <?php the_field( 'html-round' ); ?>
                 </div>
               <?php endif; ?>
               <?php if ( get_field( 'cta' ) && get_field( 'scegli_url' ) ) : ?>
