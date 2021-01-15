@@ -25,6 +25,9 @@ jQuery(document).ready(function() {
         popTextsWidth = popWindowWidth;
         jQuery('.popup-shape, .popup-wrapper').css({'width': popTextsWidth+"px" });
       }
+      if ( popWindowWidth < 768 ) {
+        jQuery('.popup-wrapper').css({'width': popWindowWidth+"px" });
+      }
     });
   }
   popupTextsShow();

@@ -95,6 +95,12 @@ else {
 }
 
 $bordo_arrotondato = get_field( 'bordi_arrotondati' );
+if ( $bordo_arrotondato === 'rounded-all' ) {
+  $larghezza_max_pop_up = '400';
+  $larghezza_min_pop_up = '400';
+  $testo_o_html = 'html';
+}
+
 $round_borders = '';
 if ( $usare_testi === 'si' && ( $mostrare_immagine_desktop === 'si' || $mostrare_immagine_mobile === 'si' ) ) {
   if ( $bordo_arrotondato === 'rounded' ) {
@@ -183,7 +189,7 @@ include( plugin_dir_path( __FILE__ ) . '../js/popup-scripts.php');
           <div class="verticalizer">
             <div class="popup-padder <?php echo $scroll_mobile; ?>">
               <div style="color: <?php the_field('colore_titolo'); ?>;">
-                <?php if ( get_field('titolo') ) : ?>
+                <?php if ( get_field('titolo') && $bordo_arrotondato != 'rounded-all' ) : ?>
                   <h2 style="color: <?php the_field('colore_titolo'); ?>;"><?php the_field('titolo'); ?></h2>
                 <?php endif; ?>
               <?php if ( $testo_o_html === 'txt' ) : ?>

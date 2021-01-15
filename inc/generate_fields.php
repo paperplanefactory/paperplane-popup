@@ -216,7 +216,15 @@ Esempio er un mese: 24x31 = 744',
 			'type' => 'accordion',
 			'instructions' => 'Scegli l\'immagine da utilizzare per desktop e mobile e il layout del pop up.',
 			'required' => 0,
-			'conditional_logic' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5c82a32abe80c',
+						'operator' => '!=',
+						'value' => 'rounded-all',
+					),
+				),
+			),
 			'wrapper' => array(
 				'width' => '',
 				'class' => '',
@@ -372,13 +380,111 @@ Esempio er un mese: 24x31 = 744',
 			'mime_types' => '',
 		),
 		array(
+			'key' => 'field_600076cf8d480',
+			'label' => 'Gestione testi e contenuti',
+			'name' => '',
+			'type' => 'accordion',
+			'instructions' => 'Gestisci contenuti del pop up a cerchio tramite HTML.',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5c82a32abe80c',
+						'operator' => '==',
+						'value' => 'rounded-all',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'open' => 1,
+			'multi_expand' => 1,
+			'endpoint' => 0,
+		),
+		array(
+			'key' => 'field_6000779a01722',
+			'label' => 'Codice HTML',
+			'name' => 'html',
+			'type' => 'textarea',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'maxlength' => '',
+			'rows' => '',
+			'new_lines' => '',
+		),
+		array(
+			'key' => 'field_60017bc3837a5',
+			'label' => 'Colore di sfondo',
+			'name' => 'colore_sfondo',
+			'type' => 'color_picker',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5afc3a4745531',
+						'operator' => '==',
+						'value' => 'si',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+		),
+		array(
+			'key' => 'field_60017bd7837a6',
+			'label' => 'Colore testi',
+			'name' => 'colore_testo',
+			'type' => 'color_picker',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5afc3a4745531',
+						'operator' => '==',
+						'value' => 'si',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+		),
+		array(
 			'key' => 'field_5c546a64b47e4',
 			'label' => 'Gestione testi e contenuti',
 			'name' => '',
 			'type' => 'accordion',
 			'instructions' => 'Gestisci testi, CTA, embed e comportamento del pulsante chiudi.',
 			'required' => 0,
-			'conditional_logic' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5c82a32abe80c',
+						'operator' => '!=',
+						'value' => 'rounded-all',
+					),
+				),
+			),
 			'wrapper' => array(
 				'width' => '',
 				'class' => '',
@@ -405,13 +511,12 @@ Esempio er un mese: 24x31 = 744',
 				'si' => 'Sì',
 				'no' => 'No',
 			),
-			'default_value' => array(
-			),
+			'default_value' => false,
 			'allow_null' => 0,
 			'multiple' => 0,
 			'ui' => 0,
-			'ajax' => 0,
 			'return_format' => 'value',
+			'ajax' => 0,
 			'placeholder' => '',
 		),
 		array(
@@ -441,8 +546,7 @@ Esempio er un mese: 24x31 = 744',
 				'embed' => 'Embed',
 				'shortcode' => 'Shortcode',
 			),
-			'default_value' => array(
-			),
+			'default_value' => false,
 			'allow_null' => 0,
 			'multiple' => 0,
 			'ui' => 0,
@@ -760,7 +864,15 @@ Impostando una CTA verificare di avere inserito una URL nel campo "Gestione comp
 			'type' => 'accordion',
 			'instructions' => '',
 			'required' => 0,
-			'conditional_logic' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5c82a32abe80c',
+						'operator' => '!=',
+						'value' => 'rounded-all',
+					),
+				),
+			),
 			'wrapper' => array(
 				'width' => '',
 				'class' => '',
@@ -1011,7 +1123,8 @@ Il posizionamento è attivo solo su desktop. Su mobile verrà considerata solo l
 			'label' => 'Vuoi i bordi arrotondati?',
 			'name' => 'bordi_arrotondati',
 			'type' => 'select',
-			'instructions' => 'Sia i bordi che il contorno del pop up saranno arrotondati.',
+			'instructions' => 'Sia i bordi che il contorno del pop up saranno arrotondati.
+Scegliendo il popup a cerchio sarà necessario controllare i testi inseriti e utilizzare i tag HTML per la loro formattazione.',
 			'required' => 1,
 			'conditional_logic' => 0,
 			'wrapper' => array(
@@ -1023,9 +1136,9 @@ Il posizionamento è attivo solo su desktop. Su mobile verrà considerata solo l
 				'no' => 'No',
 				'rounded' => 'Bordi arrotondati',
 				'rounded-big' => 'Bordi molto arrotondati',
+				'rounded-all' => 'Popup a cerchio',
 			),
-			'default_value' => array(
-			),
+			'default_value' => false,
 			'allow_null' => 0,
 			'multiple' => 0,
 			'ui' => 0,
@@ -1135,7 +1248,15 @@ Se non utilizzi l\'overlay potrai scegliere dove posizionare il pop up dalla tab
 			'type' => 'number',
 			'instructions' => 'Inserire un valore in pixel che verrà utilizzato solo su desktop. Usare un valore compreso tra 1 e 400px.',
 			'required' => 1,
-			'conditional_logic' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5c82a32abe80c',
+						'operator' => '!=',
+						'value' => 'rounded-all',
+					),
+				),
+			),
 			'wrapper' => array(
 				'width' => '',
 				'class' => '',
@@ -1156,7 +1277,15 @@ Se non utilizzi l\'overlay potrai scegliere dove posizionare il pop up dalla tab
 			'type' => 'number',
 			'instructions' => 'Inserire un valore in pixel che verrà utilizzato solo su desktop. Usare un valore compreso tra 400 e 980px.',
 			'required' => 1,
-			'conditional_logic' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5c82a32abe80c',
+						'operator' => '!=',
+						'value' => 'rounded-all',
+					),
+				),
+			),
 			'wrapper' => array(
 				'width' => '',
 				'class' => '',
@@ -1482,7 +1611,7 @@ Se hai scelto di utilizzare l\'overlay (e quindi di posizionare il pop up al cen
 			'label' => 'Icona per il pulsante chiudi',
 			'name' => 'close_button',
 			'type' => 'image',
-			'instructions' => 'Se non vuoi utilizzare un pulsante personalizzato verrà utilizzato quello predefinito. Se vuoi usarne uno personalizzato utilizza un\'immagine png di 30x30px',
+			'instructions' => 'Se non vuoi utilizzare un pulsante personalizzato verrà utilizzato quello predefinito. Se vuoi usarne uno personalizzato utilizza un\'immagine png o svg di 30x30px',
 			'required' => 0,
 			'conditional_logic' => array(
 				array(
@@ -1506,13 +1635,13 @@ Se hai scelto di utilizzare l\'overlay (e quindi di posizionare il pop up al cen
 			'return_format' => 'url',
 			'preview_size' => 'thumbnail',
 			'library' => 'all',
-			'min_width' => 30,
-			'min_height' => 30,
+			'min_width' => '',
+			'min_height' => '',
 			'min_size' => '',
-			'max_width' => 30,
-			'max_height' => 30,
+			'max_width' => '',
+			'max_height' => '',
 			'max_size' => '',
-			'mime_types' => 'png',
+			'mime_types' => 'png, svg',
 		),
 		array(
 			'key' => 'field_5b1292e360ba3',
@@ -1538,6 +1667,11 @@ Se hai scelto di utilizzare l\'overlay (e quindi di posizionare il pop up al cen
 						'operator' => '==',
 						'value' => 'si',
 					),
+					array(
+						'field' => 'field_5c82a32abe80c',
+						'operator' => '!=',
+						'value' => 'rounded-all',
+					),
 				),
 			),
 			'wrapper' => array(
@@ -1555,8 +1689,7 @@ Se hai scelto di utilizzare l\'overlay (e quindi di posizionare il pop up al cen
 				'left-center' => 'A sinistra al centro',
 				'right-center' => 'A destra al centro',
 			),
-			'default_value' => array(
-			),
+			'default_value' => false,
 			'allow_null' => 0,
 			'multiple' => 0,
 			'ui' => 0,

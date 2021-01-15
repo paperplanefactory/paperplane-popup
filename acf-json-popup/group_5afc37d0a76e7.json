@@ -24,7 +24,7 @@
             "label": "Test mode",
             "name": "test_mode",
             "type": "true_false",
-            "instructions": "Con il test mode attivo solo gli utenti loggati potranno vedere i pop up. Utile per fare dei test.",
+            "instructions": "Con il test mode attivo solo gli utenti loggati potranno vedere i pop up. Utile per fare dei test senza che i visitatori possano vedere il popup.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -42,7 +42,7 @@
             "key": "field_5afc39c44552d",
             "label": "Scegli una URL di destinazione",
             "name": "scegli_url",
-            "type": "url",
+            "type": "text",
             "instructions": "Questo è il link di destinazione se viene impostata un'immagine o una CTA.<br \/>\r\nCliccando l'immagine o la CTA l'utente verrà mandato alla pagina di destinazione e il pop up non si aprirà più (fino alla scadenza dei cookie) in quanto l'obbiettivo è stato raggiunto.<br \/>\r\nSe la URL che impostate in questo campo corrisponde alla URL che viene visitata dall'utente il pop up non comparirà in quella specifica pagina.",
             "required": 0,
             "conditional_logic": 0,
@@ -52,7 +52,10 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": ""
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_5b07c92778ef1",
@@ -84,7 +87,7 @@
             "label": "Scadenza cookie",
             "name": "scadenza_cookie",
             "type": "number",
-            "instructions": "Il pop-up genera un cookie per ogni utente che visita il sito. Quando l'utente chiude il pop-up (o clicca uno dei link al suo interno) il cookie viene impostato per avere un intervallo in modo tale da non far comparire continuamente il pop-up allo stesso visitatore. Scegliere qui quanto deve durare l'intervallo (in ore) che di default è impostato a 7 ore.<br \/>\r\nEsempio er un mese: 24x31 = 744",
+            "instructions": "Il pop-up genera un cookie per ogni utente che visita il sito. Quando l'utente chiude il pop-up (o clicca uno dei link al suo interno) il cookie viene impostato per avere un intervallo in modo tale da non far comparire continuamente il pop-up allo stesso visitatore. Scegliere qui quanto deve durare l'intervallo (in ore) che di default è impostato a 24 ore.<br \/>\r\nEsempio er un mese: 24x31 = 744",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
@@ -92,7 +95,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": 7,
+            "default_value": 14,
             "placeholder": "",
             "prepend": "",
             "append": "",
@@ -205,7 +208,15 @@
             "type": "accordion",
             "instructions": "Scegli l'immagine da utilizzare per desktop e mobile e il layout del pop up.",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5c82a32abe80c",
+                        "operator": "!=",
+                        "value": "rounded-all"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -359,13 +370,111 @@
             "mime_types": ""
         },
         {
+            "key": "field_600076cf8d480",
+            "label": "Gestione testi e contenuti",
+            "name": "",
+            "type": "accordion",
+            "instructions": "Gestisci contenuti del pop up a cerchio tramite HTML.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5c82a32abe80c",
+                        "operator": "==",
+                        "value": "rounded-all"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 1,
+            "multi_expand": 1,
+            "endpoint": 0
+        },
+        {
+            "key": "field_6000779a01722",
+            "label": "Codice HTML",
+            "name": "html",
+            "type": "textarea",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "<!--\r\n<a href=\"#\" target=\"#\" class=\"cookie_box_close_forever123 popup-cta-btn\">testo cta<\/a>\r\n-->",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_60017bc3837a5",
+            "label": "Colore di sfondo",
+            "name": "colore_sfondo",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5afc3a4745531",
+                        "operator": "==",
+                        "value": "si"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": ""
+        },
+        {
+            "key": "field_60017bd7837a6",
+            "label": "Colore testi",
+            "name": "colore_testo",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5afc3a4745531",
+                        "operator": "==",
+                        "value": "si"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": ""
+        },
+        {
             "key": "field_5c546a64b47e4",
             "label": "Gestione testi e contenuti",
             "name": "",
             "type": "accordion",
             "instructions": "Gestisci testi, CTA, embed e comportamento del pulsante chiudi.",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5c82a32abe80c",
+                        "operator": "!=",
+                        "value": "rounded-all"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -392,12 +501,12 @@
                 "si": "Sì",
                 "no": "No"
             },
-            "default_value": [],
+            "default_value": false,
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
-            "ajax": 0,
             "return_format": "value",
+            "ajax": 0,
             "placeholder": ""
         },
         {
@@ -427,7 +536,7 @@
                 "embed": "Embed",
                 "shortcode": "Shortcode"
             },
-            "default_value": [],
+            "default_value": false,
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -744,7 +853,15 @@
             "type": "accordion",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5c82a32abe80c",
+                        "operator": "!=",
+                        "value": "rounded-all"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -991,7 +1108,7 @@
             "label": "Vuoi i bordi arrotondati?",
             "name": "bordi_arrotondati",
             "type": "select",
-            "instructions": "Sia i bordi che il contorno del pop up saranno arrotondati.",
+            "instructions": "Sia i bordi che il contorno del pop up saranno arrotondati.\r\nScegliendo il popup a cerchio sarà necessario controllare i testi inseriti e utilizzare i tag HTML per la loro formattazione.",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
@@ -1002,9 +1119,10 @@
             "choices": {
                 "no": "No",
                 "rounded": "Bordi arrotondati",
-                "rounded-big": "Bordi molto arrotondati"
+                "rounded-big": "Bordi molto arrotondati",
+                "rounded-all": "Popup a cerchio"
             },
-            "default_value": [],
+            "default_value": false,
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -1061,15 +1179,7 @@
             "type": "select",
             "instructions": "Scegli se mostrare livello con un colore di sfondo tra il pop up e la pagina.<br \/>\r\nSe scegli di utilizzare l'overlay il pop up verrà posizionato al centro dello schermo.<br \/>\r\nSe non utilizzi l'overlay potrai scegliere dove posizionare il pop up dalla tab \"Gestione dimensione e posizione\".",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5b12901e6d6ff",
-                        "operator": "==",
-                        "value": "si"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -1079,7 +1189,7 @@
                 "si": "Sì",
                 "no": "No"
             },
-            "default_value": [],
+            "default_value": false,
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -1119,7 +1229,15 @@
             "type": "number",
             "instructions": "Inserire un valore in pixel che verrà utilizzato solo su desktop. Usare un valore compreso tra 1 e 400px.",
             "required": 1,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5c82a32abe80c",
+                        "operator": "!=",
+                        "value": "rounded-all"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -1140,7 +1258,15 @@
             "type": "number",
             "instructions": "Inserire un valore in pixel che verrà utilizzato solo su desktop. Usare un valore compreso tra 400 e 980px.",
             "required": 1,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5c82a32abe80c",
+                        "operator": "!=",
+                        "value": "rounded-all"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -1181,7 +1307,7 @@
                 "bottom-right": "In basso a destra",
                 "bottom-left": "In basso a sinistra"
             },
-            "default_value": [],
+            "default_value": false,
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -1458,7 +1584,7 @@
             "label": "Icona per il pulsante chiudi",
             "name": "close_button",
             "type": "image",
-            "instructions": "Se non vuoi utilizzare un pulsante personalizzato verrà utilizzato quello predefinito. Se vuoi usarne uno personalizzato utilizza un'immagine png di 30x30px",
+            "instructions": "Se non vuoi utilizzare un pulsante personalizzato verrà utilizzato quello predefinito. Se vuoi usarne uno personalizzato utilizza un'immagine png o svg di 30x30px",
             "required": 0,
             "conditional_logic": [
                 [
@@ -1482,13 +1608,13 @@
             "return_format": "url",
             "preview_size": "thumbnail",
             "library": "all",
-            "min_width": 30,
-            "min_height": 30,
+            "min_width": "",
+            "min_height": "",
             "min_size": "",
-            "max_width": 30,
-            "max_height": 30,
+            "max_width": "",
+            "max_height": "",
             "max_size": "",
-            "mime_types": "png"
+            "mime_types": "png, svg"
         },
         {
             "key": "field_5b1292e360ba3",
@@ -1513,6 +1639,11 @@
                         "field": "field_5b3634c5a0bfd",
                         "operator": "==",
                         "value": "si"
+                    },
+                    {
+                        "field": "field_5c82a32abe80c",
+                        "operator": "!=",
+                        "value": "rounded-all"
                     }
                 ]
             ],
@@ -1531,7 +1662,7 @@
                 "left-center": "A sinistra al centro",
                 "right-center": "A destra al centro"
             },
-            "default_value": [],
+            "default_value": false,
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -1555,7 +1686,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1560257021
+    "modified": 1610718708
 }

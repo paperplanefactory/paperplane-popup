@@ -1,9 +1,13 @@
+// main: paperplanepopup.scss
+
 .hide-desktop-image {
 	display: none;
 }
+
 .popup-mobile-image {
 	display: none;
 }
+
 .verticalizer {
 	height: 100%;
 	display: -webkit-box;
@@ -15,11 +19,13 @@
 	-ms-flex-align: center;
 	align-items: center;
 }
+
 .popup-shape-image-text-horizontal {
 	.popup-shape-image {
 		order: 1;
 		width: 100%;
 	}
+
 	.popup-shape-texts {
 		order: 2;
 		width: 100%;
@@ -31,6 +37,7 @@
 		order: 2;
 		width: 100%;
 	}
+
 	.popup-shape-texts {
 		order: 1;
 		width: 100%;
@@ -42,6 +49,7 @@
 		order: 1;
 		width: 50%;
 	}
+
 	.popup-shape-texts {
 		order: 2;
 		width: 50%;
@@ -53,9 +61,48 @@
 		order: 2;
 		width: 50%;
 	}
+
 	.popup-shape-texts {
 		order: 1;
 		width: 50%;
+	}
+}
+
+.popup-shape.rounded-all {
+	width: 400px;
+	height: 400px;
+	display: inline-block;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.rounded-all {
+	&.popup-not-overlay {
+		&.popup-top-right {
+			top: 20px;
+			right: 20px;
+		}
+
+		&.popup-top-left {
+			top: 20px;
+			left: 20px;
+		}
+
+		&.popup-bottom-right {
+			bottom: 20px;
+			right: 20px;
+		}
+
+		&.popup-bottom-left {
+			bottom: 20px;
+			left: 20px;
+		}
+	}
+
+	.popup-close-btn {
+		left: 50% !important;
+		margin-left: -15px;
+		top: 350px !important;
 	}
 }
 
@@ -64,34 +111,39 @@
 		left: -10px;
 		bottom: -10px;
 	}
+
 	.popup-close-bottom-right {
 		right: -10px;
 		bottom: -10px;
 	}
+
 	.popup-close-top-right {
 		right: -10px;
 		top: -10px;
 	}
+
 	.popup-close-top-left {
 		left: -10px;
 		top: -10px;
 	}
 }
 
-
 .rounded.popup-overlay {
 	.popup-close-bottom-left {
 		left: -10px;
 		bottom: -10px;
 	}
+
 	.popup-close-bottom-right {
 		right: -10px;
 		bottom: -10px;
 	}
+
 	.popup-close-top-right {
 		right: -10px;
 		top: -10px;
 	}
+
 	.popup-close-top-left {
 		left: -10px;
 		top: -10px;
@@ -103,14 +155,17 @@
 		left: -5px;
 		bottom: -5px;
 	}
+
 	.popup-close-bottom-right {
 		right: -5px;
 		bottom: -5px;
 	}
+
 	.popup-close-top-right {
 		right: -5px;
 		top: -5px;
 	}
+
 	.popup-close-top-left {
 		left: -5px;
 		top: -5px;
@@ -122,6 +177,7 @@
 		left: -10px;
 		bottom: -10px;
 	}
+
 	.popup-close-def-set-text {
 		right: 5px;
 		bottom: -35px;
@@ -147,6 +203,7 @@
 		right: -10px;
 		bottom: -10px;
 	}
+
 	.popup-close-def-set-text {
 		left: 5px;
 		bottom: -35px;
@@ -172,6 +229,7 @@
 		left: -10px;
 		top: -10px;
 	}
+
 	.popup-close-def-set-text {
 		right: 5px;
 		top: -35px;
@@ -197,6 +255,7 @@
 		right: -10px;
 		top: -10px;
 	}
+
 	.popup-close-def-set-text {
 		left: 5px;
 		top: -35px;

@@ -1,49 +1,110 @@
+// main: paperplanepopup.scss
+
 .hide-mobile-image {
 	display: none;
 }
+
 .popup-desktop-image {
 	display: none;
 }
+
 .popup-shape {
 	min-height: 0 !important;
 }
+
 .half-text {
 	width: 100%;
 	overflow: hidden;
 }
-.full-text {
-}
+
+.full-text {}
+
 .popup-padder {
 	margin-bottom: 30px !important;
 }
-.popup-shape-image-text-horizontal, .popup-shape-image-text-vertical {
+
+.popup-shape-image-text-horizontal,
+.popup-shape-image-text-vertical {
 	.popup-shape-image {
 		order: 1;
 		width: 100%;
 	}
+
 	.popup-shape-texts {
 		order: 2;
 		width: 100%;
 	}
 }
 
-.popup-shape-text-image-horizontal, .popup-shape-text-image-vertical {
+.popup-shape-text-image-horizontal,
+.popup-shape-text-image-vertical {
 	.popup-shape-image {
 		order: 2;
 		width: 100%;
 	}
+
 	.popup-shape-texts {
 		order: 1;
 		width: 100%;
 	}
 }
 
-.popup-top-right, .popup-top-left {
+.popup-shape.rounded-all {
+	width: 90vw;
+	height: 90vw;
+	display: inline-block;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.rounded-all {
+	.popup-padder {
+		width: 90vw;
+		height: 90vw;
+		display: -webkit-flex !important;
+		display: flex !important;
+		-webkit-flex-wrap: wrap !important;
+		flex-wrap: wrap !important;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+	}
+
+	.popup-styler {
+		text-align: center;
+		padding: 5vw 0 0;
+		width: calc(90vw - 50px) !important;
+	}
+
+	&.popup-overlay {
+		padding-left: 5vw !important;
+	}
+
+	&.popup-not-overlay {
+		&.popup-bottom-left,
+		&.popup-bottom-right,
+		&.popup-top-left,
+		&.popup-top-right {
+			bottom: 0;
+			left: 5vw !important;
+		}
+	}
+
+	.popup-close-btn {
+		//eft: 50% !important;
+		margin-left: -30px !important;
+		top: 77vw !important;
+	}
+}
+
+.popup-top-left,
+.popup-top-right {
 	.popup-close-def-set {
 		left: 50%;
 		margin-left: -15px;
 		bottom: -15px;
 	}
+
 	.popup-close-def-set-text {
 		right: 0;
 		width: 100%;
@@ -52,12 +113,14 @@
 	}
 }
 
-.popup-bottom-right, .popup-bottom-left {
+.popup-bottom-left,
+.popup-bottom-right {
 	.popup-close-def-set {
 		left: 50%;
 		margin-left: -15px;
 		top: -15px;
 	}
+
 	.popup-close-def-set-text {
 		right: 0;
 		width: 100%;
@@ -66,15 +129,6 @@
 	}
 }
 
-
-
-
-
-
-
-
-
-
 .popup-close-top-right-text {
 	right: 0;
 	width: 100%;
@@ -82,7 +136,14 @@
 	text-align: center;
 }
 
-.popup-close-top-right, .popup-close-top-left, .popup-close-bottom-right, .popup-close-bottom-left, .popup-close-top-center, .popup-close-bottom-center, .popup-close-left-center, .popup-close-right-center {
+.popup-close-bottom-center,
+.popup-close-bottom-left,
+.popup-close-bottom-right,
+.popup-close-left-center,
+.popup-close-right-center,
+.popup-close-top-center,
+.popup-close-top-left,
+.popup-close-top-right {
 	left: 50%;
 	margin-left: -15px;
 	top: -15px;
