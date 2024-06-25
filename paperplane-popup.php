@@ -73,21 +73,6 @@ if( ! defined( 'ABSPATH' ) ) exit;
 		 require_once(plugin_dir_path( __FILE__ ) . '/inc/register-popup-cpt.php');
 		 // aggiungo i ritagli per le immagini
 		 require_once(plugin_dir_path( __FILE__ ) . '/inc/register-popup-images.php');
-		 // Genero i campi necessari alla compilazione del pop up
-		 require_once(plugin_dir_path( __FILE__ ) . '/inc/generate_fields.php');
-     // Carico ACF JSON
-				add_filter('acf/settings/load_json', function() {
-					$paths[] = dirname(__FILE__) . '/acf-json-popup';
-					return $paths;
-        });
-
-        //add_filter('acf/settings/save_json', 'paperplane_popup_acf_json_save_point');
-        function paperplane_popup_acf_json_save_point( $path ) {
-          // update path
-          $path = dirname(__FILE__) . '/acf-json-popup';
-          // return
-          return $path;
-        }
 
 
 		 // coloro i custom fields
@@ -119,4 +104,32 @@ if( ! defined( 'ABSPATH' ) ) exit;
 		 </div>
 	 <?php }
  }
+ add_filter('acf/settings/load_json', 'add_acf_json_load_folder');
+function add_acf_json_load_folder( $paths ) {
+    //unset($paths[0]);
+    $paths[] = plugin_dir_path( __FILE__ ).'/acf-json';
+    return $paths;
+}
  add_action( 'plugins_loaded', 'paperplanePopup_init' );
+
+ // salvo nella cartella del plugin una esportazione in JSON dei campi ACF per gestire il plugin
+new paperplane_popup_plugin_acf_group_save();
+class paperplane_popup_plugin_acf_group_save {
+	private $groups = array(
+		'group_5afc37d0a76e7' // codici di tracciamento
+	);
+	public function __construct() {
+		add_action('acf/update_field_group', array($this, 'update_field_group'), 1, 1);
+	}
+	public function update_field_group($group) {
+		if (in_array($group['key'], $this->groups)) {
+			add_filter('acf/settings/save_json',  array($this, 'override_location'), 9999);
+		}
+		return $group;
+	}
+	public function override_location($path) {
+		remove_filter('acf/settings/save_json',  array($this, 'override_location'), 9999);
+		$path = plugin_dir_path( __FILE__ ).'/acf-json';
+		return $path;
+	}
+}
